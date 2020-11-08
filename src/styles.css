@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+html,
+body {
+  margin: 0;
+  height: 100%;
+  width: 100% !important;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mat-simple-snackbar {
+  justify-content: center !important;
+}
+
+.mat-slider-thumb-label {
+  transform: rotate(45deg) !important;
+  border-radius: 50% 50% 0 !important;
+}
+
+.mat-slider-thumb {
+  transform: scale(0) !important;
+}
+
+.mat-slider-thumb-label-text {
+  opacity: 1 !important;
+}

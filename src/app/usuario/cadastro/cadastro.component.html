@@ -1,0 +1,88 @@
+<div class="form-wraper">
+  <form novalidate (ngSubmit)="adicionarConta()" [formGroup]="cadastroForm">
+    <div class="form-container card">
+      <div class="form-header">
+        <img src="./../../assets/cadastro.svg" class="main-lock-icon" alt="" />
+      </div>
+      <m4-error-list [Errors]="errors"></m4-error-list>
+      <div class="form-body">
+        <mat-form-field class="justifier">
+          <mat-label>Nome</mat-label>
+          <input matInput required class="form-input" formControlName="nome" />
+          <mat-hint [innerHTML]="displayMessage.nome"></mat-hint>
+        </mat-form-field>
+        <mat-form-field class="justifier">
+          <mat-label>Sobrenome</mat-label>
+          <input
+            matInput
+            required
+            class="form-input"
+            formControlName="sobrenome"
+          />
+          <mat-hint [innerHTML]="displayMessage.sobrenome"></mat-hint>
+        </mat-form-field>
+        <mat-form-field class="justifier">
+          <input
+            matInput
+            placeholder="Email"
+            text="email"
+            required
+            class="form-input"
+            formControlName="email"
+          />
+          <mat-hint [innerHTML]="displayMessage.email"></mat-hint>
+        </mat-form-field>
+        <mat-form-field class="justifier">
+          <input
+            matInput
+            placeholder="Senha"
+            [type]="hide ? 'password' : 'text'"
+            formControlName="senha"
+            required
+            class="form-input"
+          />
+          <mat-icon matSuffix (click)="hide = !hide"
+            >{{ hide ? "visibility_off" : "visibility" }}
+          </mat-icon>
+          <mat-hint [innerHTML]="displayMessage.senha"></mat-hint>
+        </mat-form-field>
+        <mat-form-field class="justifier">
+          <input
+            matInput
+            placeholder="Confirmação"
+            [type]="hide ? 'password' : 'text'"
+            formControlName="senhaConfirmacao"
+            required
+            class="form-input"
+          />
+          <mat-icon matSuffix (click)="hide = !hide"
+            >{{ hide ? "visibility_off" : "visibility" }}
+          </mat-icon>
+          <mat-hint [innerHTML]="displayMessage.senhaConfirmacao"></mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="form-footer">
+        <button
+          [disabled]="
+            !cadastroForm.valid || (spinnerService.visibility | async)
+          "
+          type="submit"
+          mat-raised-button
+          class="btn custom-btn"
+        >
+
+          <div *ngIf="!(spinnerService.visibility | async)">
+            <mat-icon>add</mat-icon>
+            Cadastrar
+          </div>
+        </button>
+      </div>
+      <div class="additional-link">
+        <a routerLink="/usuario/entrar"
+          >Já possui uma conta? <strong>Entrar</strong></a
+        >
+      </div>
+    </div>
+  </form>
+</div>

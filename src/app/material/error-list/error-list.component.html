@@ -1,0 +1,8 @@
+<div class="center" *ngIf="Errors.length > 0">
+  <h3>Vish! Alguma coisa deu ruim ¯\_(ツ)_/¯¯</h3>
+  <ul>
+    <li *ngFor="let error of Errors">
+      {{ error }}
+    </li>
+  </ul>
+</div>

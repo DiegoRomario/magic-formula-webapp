@@ -1,0 +1,56 @@
+<mat-toolbar color="primary">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div>
+    <a style="font-size: 40px" routerLink="/home">🧙 </a>
+    <a routerLink="/home">Magic Formula</a>
+  </div>
+
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <ul
+      [ngSwitch]="usuarioLogado()"
+      fxLayout
+      fxLayoutGap="15px"
+      class="navigation-items"
+    >
+      <li *ngSwitchCase="false">
+        <button [routerLink]="['usuario/login']" mat-flat-button color="accent">
+          Entrar
+        </button>
+      </li>
+      <li *ngSwitchCase="false">
+        <button
+          [routerLink]="['usuario/cadastro']"
+          mat-flat-button
+          color="accent"
+        >
+          Cadastre-se
+        </button>
+      </li>
+      <li *ngSwitchCase="false">
+        <button
+          [routerLink]="['magic-formula/acoes']"
+          mat-flat-button
+          color="accent"
+        >
+          Ações
+        </button>
+      </li>
+      <li *ngSwitchCase="true">
+        <button color="primary" mat-flat-button>
+          Olá, {{ usuario.nome }}!
+        </button>
+      </li>
+
+      <li *ngSwitchCase="true">
+        <button color="primary" mat-flat-button (click)="logout()">
+          Sair
+          <mat-icon>exit_to_app</mat-icon>
+        </button>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,25 @@
+.example-container {
+  position: relative;
+  min-height: 600px;
+}
+.example-table-container {
+  position: relative;
+  max-height: 600px;
+  overflow: auto;
+}
+table {
+  width: 100%;
+}
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+td,
+th {
+  width: 25%;
+}
+
+th {
+  font-size: 14px;
+  font-weight: 600;
+}

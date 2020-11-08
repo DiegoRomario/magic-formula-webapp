@@ -1,0 +1,91 @@
+<section fxLayout="column" fxFlexAlign="stretch">
+  <mat-tab-group (selectedTabChange)="executeSelectedChange($event)">
+    <mat-tab label="EV/EBIT + ROIC">
+      <br />
+      <div fxLayout fxLayoutGap="10px" fxLayoutAlign="center center">
+        <mat-form-field fxFlex="8%">
+          <mat-label>Ticker</mat-label>
+          <input matInput placeholder="Ex: WEGE3" (keyup)="applyFilter($event)" #input />
+        </mat-form-field>
+        <mat-form-field fxFlex="8%">
+          <mat-label>P/L</mat-label>
+          <input matInput type="number" placeholder="Menor que" (keyup)="applyFilter($event)" #input />
+        </mat-form-field>
+        <mat-form-field fxFlex="8%">
+          <mat-label>EV/EBIT</mat-label>
+          <input matInput type="number" (keyup)="applyFilter($event)" placeholder="Menor que" #input />
+        </mat-form-field>
+        <mat-form-field fxFlex="8%">
+          <mat-label>P/VPA</mat-label>
+          <input matInput type="number" (keyup)="applyFilter($event)" placeholder="Menor que" #input />
+        </mat-form-field>
+        <mat-form-field fxFlex="8%">
+          <mat-label>ROE</mat-label>
+          <input matInput type="number" (keyup)="applyFilter($event)" placeholder="Maior que" #input />
+          <span matSuffix>%</span>
+        </mat-form-field>
+        <mat-form-field fxFlex="8%">
+          <mat-label>ROIC</mat-label>
+          <input matInput type="number" (keyup)="applyFilter($event)" placeholder="Maior que" #input />
+          <span matSuffix>%</span>
+        </mat-form-field>
+        <mat-form-field fxFlex="8%">
+          <mat-label>DY</mat-label>
+          <input matInput type="number" (keyup)="applyFilter($event)" placeholder="Maior que" #input />
+          <span matSuffix>%</span>
+        </mat-form-field>
+        <mat-form-field fxFlex="8%">
+          <mat-label>Cresc. Rec 5a</mat-label>
+          <input matInput type="number" (keyup)="applyFilter($event)" placeholder="Maior que" #input />
+          <span matSuffix>%</span>
+        </mat-form-field>
+        <mat-form-field fxFlex="8%">
+          <mat-label>Marg. EBIT</mat-label>
+          <input matInput type="number" (keyup)="applyFilter($event)" placeholder="Maior que" #input />
+          <span matSuffix>%</span>
+        </mat-form-field>
+        <mat-form-field fxFlex="8%">
+          <mat-label>Marg. Liq.</mat-label>
+          <input matInput type="number" (keyup)="applyFilter($event)" placeholder="Maior que" #input />
+          <span matSuffix>%</span>
+        </mat-form-field>
+      </div>
+
+      <div *ngIf="acoes" style="margin: 10px" class="example-container">
+        <div class="mat-elevation-z8">
+          <div class="example-table-container">
+            <table mat-table [dataSource]="dataSource" matSort>
+              <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                  {{ obterHeader(col)}}
+                </th>
+                <td style="min-width: 120px !important" mat-cell *matCellDef="let element">
+                  <span> {{element[col]}}</span>
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true">
+              </tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+
+              <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">
+                  Nenhuma ação encontrada
+                </td>
+              </tr>
+            </table>
+          </div>
+
+          <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+        </div>
+      </div>
+    </mat-tab>
+    <mat-tab label="PL + ROE">
+      <p>Lista de Ações</p>
+    </mat-tab>
+    <mat-tab label="Customizado">
+      <p>Lista de Ações</p>
+    </mat-tab>
+  </mat-tab-group>
+</section>
