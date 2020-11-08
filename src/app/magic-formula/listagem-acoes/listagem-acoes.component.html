@@ -55,20 +55,17 @@
         <div class="mat-elevation-z8">
           <div class="example-table-container">
             <table mat-table [dataSource]="dataSource" matSort>
-              <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col">
+              <ng-container *ngFor="let col of definicaoColunas" [matColumnDef]="col.label">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header>
-                  {{ obterHeader(col)}}
+                  {{col.label}}
                 </th>
                 <td style="min-width: 120px !important" mat-cell *matCellDef="let element">
-                  <span> {{element[col]}}</span>
+                  <span> {{element[col.key] | dynamic:col.pipe.toString()}}</span>
                 </td>
               </ng-container>
-
               <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true">
               </tr>
               <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
-
               <tr class="mat-row" *matNoDataRow>
                 <td class="mat-cell" colspan="4">
                   Nenhuma ação encontrada

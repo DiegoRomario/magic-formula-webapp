@@ -1,5 +1,5 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe, DatePipe } from '@angular/common';
 import { MaterialModule } from '../material/material.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -12,8 +12,10 @@ import { MagicFormulaComponent } from './magic-formula.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AcaoService } from './services/acao.services';
 import { AcaoResolver } from './services/acao.resolver';
+import { DynamicPipe } from '../utils/dynamic.pipe';
 @NgModule({
-  declarations: [MagicFormulaComponent, ListagemAcoesComponent],
+  declarations: [MagicFormulaComponent, ListagemAcoesComponent,
+    DynamicPipe],
   imports: [
     CommonModule,
     MaterialModule,
@@ -24,8 +26,12 @@ import { AcaoResolver } from './services/acao.resolver';
     HttpClientModule,
     FlexLayoutModule,
   ],
+  exports: [DynamicPipe],
   providers: [
-    [{ provide: LOCALE_ID, useValue: 'pt-BR' }],
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
+    DatePipe,
+    CurrencyPipe,
+    DynamicPipe,
     UsuarioGuard,
     AcaoService,
     {

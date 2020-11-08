@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -10,13 +10,17 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { SideNavigationComponent } from './navigation/side-navigation/side-navigation.component';
 import { AppRoutingModule } from './app.routing.module';
 import { RouterModule } from '@angular/router';
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt);
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
     HomeComponent,
     HeaderComponent,
-    SideNavigationComponent,
+    SideNavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,9 @@ import { RouterModule } from '@angular/router';
     AppRoutingModule,
     RouterModule,
   ],
-  providers: [],
   bootstrap: [AppComponent],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
+  ]
 })
-export class AppModule {}
+export class AppModule { }
