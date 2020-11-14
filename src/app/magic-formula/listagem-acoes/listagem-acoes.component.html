@@ -54,13 +54,16 @@
       <div *ngIf="acoes" style="margin: 10px" class="example-container">
         <div class="mat-elevation-z8">
           <div class="example-table-container">
-            <table mat-table [dataSource]="dataSource" matSort>
+            <table mat-table [dataSource]="dataSource" matSort matSortActive="Ranking" matSortDirection="asc"
+              matSortDisableClear>
               <ng-container *ngFor="let col of definicaoColunas" [matColumnDef]="col.label">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>
+                <th class="headers" mat-header-cell *matHeaderCellDef mat-sort-header
+                  [arrowPosition]='col.arrowPosition'>
                   {{col.label}}
                 </th>
-                <td style="min-width: 120px !important" mat-cell *matCellDef="let element">
+                <td class="fields" [ngClass]="[col.textAlign ? col.textAlign : '']" mat-cell *matCellDef="let element">
                   <span> {{element[col.key] | dynamic:col.pipe.toString()}}</span>
+
                 </td>
               </ng-container>
               <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true">

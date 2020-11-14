@@ -22,8 +22,9 @@ export class ListagemAcoesComponent implements OnInit {
    @ViewChild(MatSort) sort: MatSort;
    dataSource: MatTableDataSource<Acao>;
    public definicaoColunas: ColumnsDefinition[] = [
-      new ColumnsDefinition({ key: 'ticker', label: 'ticker', size: 50 }),
-      new ColumnsDefinition({ key: 'cotacao', label: 'Cotação', size: 50, pipe: DynamicPipeDataType.currency }),
+      new ColumnsDefinition({ key: 'pontuacao', label: 'Ranking' }),
+      new ColumnsDefinition({ key: 'ticker', label: 'Ticker', textAlign: 'left', arrowPosition: 'after' }),
+      new ColumnsDefinition({ key: 'cotacao', label: 'Cotação', pipe: DynamicPipeDataType.currency }),
       new ColumnsDefinition({ key: 'pl', label: 'P/L' }),
       new ColumnsDefinition({ key: 'pvp', label: 'P/VPA' }),
       new ColumnsDefinition({ key: 'psr', label: 'PSR' }),
@@ -39,11 +40,10 @@ export class ListagemAcoesComponent implements OnInit {
       new ColumnsDefinition({ key: 'liquidezCorrente', label: 'Liq. Corrente', }),
       new ColumnsDefinition({ key: 'roic', label: 'ROIC', pipe: DynamicPipeDataType.percent }),
       new ColumnsDefinition({ key: 'roe', label: 'ROE', pipe: DynamicPipeDataType.percent }),
-      new ColumnsDefinition({ key: 'liquidez2Meses', label: 'Liq. 2 Meses', size: 120, pipe: DynamicPipeDataType.currency }),
-      new ColumnsDefinition({ key: 'patrimonioLiquido', label: 'Pat. Líquido', size: 120, pipe: DynamicPipeDataType.currency }),
-      new ColumnsDefinition({ key: 'divBrutaPatrimonio', label: 'Div. Bruta/Pat.', size: 120 }),
-      new ColumnsDefinition({ key: 'crescimentoReceita5Anos', label: 'Cresc. Rec. 5a', size: 120, pipe: DynamicPipeDataType.percent }),
-      new ColumnsDefinition({ key: 'pontuacao', label: 'Ranking', size: 50 }),
+      new ColumnsDefinition({ key: 'liquidez2Meses', label: 'Liq. 2 Meses', pipe: DynamicPipeDataType.currency }),
+      new ColumnsDefinition({ key: 'divBrutaPatrimonio', label: 'Div. Bruta/Pat.', }),
+      new ColumnsDefinition({ key: 'crescimentoReceita5Anos', label: 'Cresc. Rec. 5a', pipe: DynamicPipeDataType.percent }),
+      new ColumnsDefinition({ key: 'patrimonioLiquido', label: 'Pat. Líquido', pipe: DynamicPipeDataType.currency }),
    ];
    displayedColumns: string[] = this.definicaoColunas.map(x => x.label);
    constructor(
