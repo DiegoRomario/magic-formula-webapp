@@ -1,12 +1,10 @@
- .example-container {
+.table-container {
   position: relative;
-  min-height: 600px;
-}
-
-.example-table-container {
-  position: relative;
-  max-height: 600px;
+  height: 65vh;
   overflow: auto;
+} 
+.container {
+  margin:  20px;
 } 
 table {
   width: 100%;
@@ -15,7 +13,6 @@ table {
 th.mat-sort-header-sorted {
   color: black;
 }
-
 
 ::ng-deep .fields {
   white-space: nowrap; 
@@ -27,10 +24,10 @@ th.mat-sort-header-sorted {
 }
 
 .right {
-  text-align: right !important;; 
+  text-align: right;
 }
 .left {
-  text-align: left !important;; 
+  text-align: left;
 }
 
 ::ng-deep .headers {

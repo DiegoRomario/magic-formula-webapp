@@ -51,9 +51,9 @@
         </mat-form-field>
       </div>
 
-      <div *ngIf="acoes" style="margin: 10px" class="example-container">
+      <div *ngIf="acoes" class="container">
         <div class="mat-elevation-z8">
-          <div class="example-table-container">
+          <div class="table-container">
             <table mat-table [dataSource]="dataSource" matSort matSortActive="pontuacao" matSortDirection="asc">
               <ng-container *ngFor="let col of definicaoColunas" [matColumnDef]="col.key">
                 <th class="headers" mat-header-cell *matHeaderCellDef mat-sort-header
@@ -76,7 +76,7 @@
             </table>
           </div>
 
-          <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+          <mat-paginator [pageSizeOptions]="[20, 50, 100]" showFirstLastButtons></mat-paginator>
         </div>
       </div>
     </mat-tab>

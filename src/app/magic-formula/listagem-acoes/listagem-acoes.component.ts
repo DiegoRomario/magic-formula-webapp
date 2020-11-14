@@ -53,15 +53,16 @@ export class ListagemAcoesComponent implements OnInit {
       private snackBar: MatSnackBar
    ) { }
    ngOnInit(): void {
+
       this.acaoServices.obterTodos().pipe(finalize(() => {
          setTimeout(() => {
             this.dataSource.sort = this.sort;
+            this.dataSource.paginator = this.paginator;
          }, 500);
       })).subscribe(
          (acoes) => {
             this.acoes = acoes;
             this.dataSource = new MatTableDataSource(this.acoes);
-            this.dataSource.paginator = this.paginator;
          },
          (error) => {
             this.snackBar.open('Ocorreu um erro ao tentar obter os dados: ' + error.statusText, null, {
@@ -72,7 +73,7 @@ export class ListagemAcoesComponent implements OnInit {
          }
       ).add(() => {
          this.dataSource.sort = this.sort;
-      });;
+      });
    }
    formatLabel(value: number) {
       return value;

@@ -14,8 +14,9 @@ import { ErrorListComponent } from './error-list/error-list.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
-import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSliderModule } from '@angular/material/slider';
+import { getPortuguesePaginatorIntl } from '../utils/portuguese-paginator-intl';
 @NgModule({
   declarations: [ErrorListComponent],
   imports: [
@@ -54,5 +55,8 @@ import { MatSliderModule } from '@angular/material/slider';
     MatPaginatorModule,
     MatSliderModule,
   ],
+  providers: [
+    { provide: MatPaginatorIntl, useValue: getPortuguesePaginatorIntl() }
+  ]
 })
-export class MaterialModule {}
+export class MaterialModule { }
