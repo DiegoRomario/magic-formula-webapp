@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import { finalize } from 'rxjs/operators';
 import { SpinnerService } from 'src/app/utils/spinner.service';
 import { Acao } from '../models/acao.model';
 import { ColumnsDefinition } from '../models/base/columns-definition.model';
@@ -19,7 +20,7 @@ export class ListagemAcoesComponent implements OnInit {
    public acoes: Acao[];
    errorMessage: string;
    @ViewChild(MatPaginator) paginator: MatPaginator;
-   @ViewChild(MatSort) sort: MatSort;
+   @ViewChild(MatSort, { static: false }) sort: MatSort;
    dataSource: MatTableDataSource<Acao>;
    public definicaoColunas: ColumnsDefinition[] = [
       new ColumnsDefinition({ key: 'pontuacao', label: 'Ranking' }),
@@ -45,19 +46,22 @@ export class ListagemAcoesComponent implements OnInit {
       new ColumnsDefinition({ key: 'crescimentoReceita5Anos', label: 'Cresc. Rec. 5a', pipe: DynamicPipeDataType.percent }),
       new ColumnsDefinition({ key: 'patrimonioLiquido', label: 'Pat. Líquido', pipe: DynamicPipeDataType.currency }),
    ];
-   displayedColumns: string[] = this.definicaoColunas.map(x => x.label);
+   displayedColumns: string[] = this.definicaoColunas.map(x => x.key);
    constructor(
       private acaoServices: AcaoService,
       public spinnerService: SpinnerService,
       private snackBar: MatSnackBar
    ) { }
    ngOnInit(): void {
-      this.acaoServices.obterTodos().subscribe(
+      this.acaoServices.obterTodos().pipe(finalize(() => {
+         setTimeout(() => {
+            this.dataSource.sort = this.sort;
+         }, 500);
+      })).subscribe(
          (acoes) => {
             this.acoes = acoes;
             this.dataSource = new MatTableDataSource(this.acoes);
             this.dataSource.paginator = this.paginator;
-            setTimeout(() => this.dataSource.sort = this.sort);
          },
          (error) => {
             this.snackBar.open('Ocorreu um erro ao tentar obter os dados: ' + error.statusText, null, {
@@ -66,7 +70,9 @@ export class ListagemAcoesComponent implements OnInit {
                verticalPosition: 'bottom',
             });
          }
-      );
+      ).add(() => {
+         this.dataSource.sort = this.sort;
+      });;
    }
    formatLabel(value: number) {
       return value;

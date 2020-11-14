@@ -54,9 +54,8 @@
       <div *ngIf="acoes" style="margin: 10px" class="example-container">
         <div class="mat-elevation-z8">
           <div class="example-table-container">
-            <table mat-table [dataSource]="dataSource" matSort matSortActive="Ranking" matSortDirection="asc"
-              matSortDisableClear>
-              <ng-container *ngFor="let col of definicaoColunas" [matColumnDef]="col.label">
+            <table mat-table [dataSource]="dataSource" matSort matSortActive="pontuacao" matSortDirection="asc">
+              <ng-container *ngFor="let col of definicaoColunas" [matColumnDef]="col.key">
                 <th class="headers" mat-header-cell *matHeaderCellDef mat-sort-header
                   [arrowPosition]='col.arrowPosition'>
                   {{col.label}}
