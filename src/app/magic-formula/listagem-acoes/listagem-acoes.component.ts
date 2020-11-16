@@ -1,4 +1,6 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
@@ -22,6 +24,7 @@ export class ListagemAcoesComponent implements OnInit {
    @ViewChild(MatPaginator) paginator: MatPaginator;
    @ViewChild(MatSort, { static: false }) sort: MatSort;
    dataSource: MatTableDataSource<Acao>;
+   public searchForm: FormGroup;
    public definicaoColunas: ColumnsDefinition[] = [
       new ColumnsDefinition({ key: 'pontuacao', label: 'Ranking' }),
       new ColumnsDefinition({ key: 'ticker', label: 'Ticker', textAlign: 'left', arrowPosition: 'after' }),
@@ -53,11 +56,12 @@ export class ListagemAcoesComponent implements OnInit {
       private snackBar: MatSnackBar
    ) { }
    ngOnInit(): void {
-
+      this.formInit();
       this.acaoServices.obterTodos().pipe(finalize(() => {
          setTimeout(() => {
             this.dataSource.sort = this.sort;
             this.dataSource.paginator = this.paginator;
+            this.dataSource.filterPredicate = this.getFilterPredicate();
          }, 500);
       })).subscribe(
          (acoes) => {
@@ -83,13 +87,54 @@ export class ListagemAcoesComponent implements OnInit {
       console.log(event);
    }
 
-   applyFilter(event: Event) {
-      const filterValue = (event.target as HTMLInputElement).value;
-      this.dataSource.filter = filterValue.trim().toLowerCase();
+
+   formInit() {
+      this.searchForm = new FormGroup({
+         ticker: new FormControl(''),
+         pl: new FormControl(''),
+         roe: new FormControl(''),
+      });
+   }
+
+   applyFilter() {
+      const ticker = this.searchForm.get('ticker').value;
+      const pl = this.searchForm.get('pl').value;
+      const roe = this.searchForm.get('roe').value;
+
+      const tickerFilter = ticker === null ? '' : ticker;
+      const plFilter = pl === null ? '' : pl;
+      const roeFilter = roe === null ? '' : roe;
+
+      const filterValue = tickerFilter + '$' + plFilter + '$' + roeFilter;
+      this.dataSource.filter = filterValue.toString();
 
       if (this.dataSource.paginator) {
          this.dataSource.paginator.firstPage();
       }
+   }
+
+   getFilterPredicate() {
+      return (row: Acao, filters: string) => {
+         const filterArray = filters.split('$');
+         const ticker = filterArray[0];
+         const pl = Number(filterArray[1]);
+         const roe = Number(filterArray[2]);
+
+         const matchFilter = [];
+
+         const columnTicker = row.ticker;
+         const columnPL = row.pl;
+         const columnROE = row.roe;
+
+         const customFilterTicker = columnTicker.includes(ticker);
+         const customFilterPL = pl === 0 ? true : columnPL < pl;
+         const customFilterROE = roe === 0 ? true : columnROE > roe;
+
+         matchFilter.push(customFilterTicker);
+         matchFilter.push(customFilterPL);
+         matchFilter.push(customFilterROE);
+         return matchFilter.every(Boolean);
+      };
    }
 }
 
