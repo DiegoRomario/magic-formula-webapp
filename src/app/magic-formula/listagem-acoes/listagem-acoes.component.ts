@@ -7,6 +7,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { finalize } from 'rxjs/operators';
 import { SpinnerService } from 'src/app/utils/spinner.service';
+import { AcaoParams } from '../models/acao-params.model';
 import { Acao } from '../models/acao.model';
 import { ColumnsDefinition } from '../models/base/columns-definition.model';
 import { DynamicPipeDataType } from '../models/base/dynamic-pipe-data-type.enum';
@@ -79,9 +80,6 @@ export class ListagemAcoesComponent implements OnInit {
          this.dataSource.sort = this.sort;
       });
    }
-   formatLabel(value: number) {
-      return value;
-   }
 
    public executeSelectedChange = (event) => {
       console.log(event);
@@ -92,20 +90,31 @@ export class ListagemAcoesComponent implements OnInit {
       this.searchForm = new FormGroup({
          ticker: new FormControl(''),
          pl: new FormControl(''),
+         pvp: new FormControl(''),
+         dy: new FormControl(''),
+         evebit: new FormControl(''),
+         margemEbit: new FormControl(''),
+         margemLiquida: new FormControl(''),
+         roic: new FormControl(''),
          roe: new FormControl(''),
+         crescimentoReceita5Anos: new FormControl('')
       });
    }
 
    applyFilter() {
-      const ticker = this.searchForm.get('ticker').value;
-      const pl = this.searchForm.get('pl').value;
-      const roe = this.searchForm.get('roe').value;
+      const params = new AcaoParams();
+      params.ticker = this.setFormFieldString('ticker');
+      params.pl = this.setFormFieldNumber('pl');
+      params.pvp = this.setFormFieldNumber('pvp');
+      params.dy = this.setFormFieldNumber('dy');
+      params.evebit = this.setFormFieldNumber('evebit');
+      params.margemLiquida = this.setFormFieldNumber('margemLiquida');
+      params.margemEbit = this.setFormFieldNumber('margemEbit');
+      params.roic = this.setFormFieldNumber('roic');
+      params.roe = this.setFormFieldNumber('roe');
+      params.crescimentoReceita5Anos = this.setFormFieldNumber('crescimentoReceita5Anos');
 
-      const tickerFilter = ticker === null ? '' : ticker;
-      const plFilter = pl === null ? '' : pl;
-      const roeFilter = roe === null ? '' : roe;
-
-      const filterValue = tickerFilter + '$' + plFilter + '$' + roeFilter;
+      const filterValue = params.concatenarFiltros();
       this.dataSource.filter = filterValue.toString();
 
       if (this.dataSource.paginator) {
@@ -113,28 +122,44 @@ export class ListagemAcoesComponent implements OnInit {
       }
    }
 
+   setFormFieldString(fieldName: string): string {
+      const value = this.searchForm.get(fieldName).value;
+      return value === null ? '' : value;
+   }
+   setFormFieldNumber(fieldName: string): number {
+      const value = Number(this.searchForm.get(fieldName).value);
+      return value === null ? 0 : value;
+   }
    getFilterPredicate() {
       return (row: Acao, filters: string) => {
+         const params = new AcaoParams();
          const filterArray = filters.split('$');
-         const ticker = filterArray[0];
-         const pl = Number(filterArray[1]);
-         const roe = Number(filterArray[2]);
+         params.definirValorPorArray(filterArray);
 
          const matchFilter = [];
 
-         const columnTicker = row.ticker;
-         const columnPL = row.pl;
-         const columnROE = row.roe;
+         matchFilter.push(row.ticker.includes(params.ticker));
+         matchFilter.push(this.menorQue(params.pl, row.pl));
+         matchFilter.push(this.menorQue(params.pvp, row.pvp));
+         matchFilter.push(this.menorQue(params.evebit, row.evebit));
+         matchFilter.push(this.maiorQue(params.dy, row.dy));
+         matchFilter.push(this.maiorQue(params.roe, row.roe));
+         matchFilter.push(this.maiorQue(params.roic, row.roic));
+         matchFilter.push(this.maiorQue(params.margemEbit, row.margemEbit));
+         matchFilter.push(this.maiorQue(params.margemLiquida, row.margemLiquida));
+         matchFilter.push(this.maiorQue(params.crescimentoReceita5Anos, row.crescimentoReceita5Anos));
 
-         const customFilterTicker = columnTicker.includes(ticker);
-         const customFilterPL = pl === 0 ? true : columnPL < pl;
-         const customFilterROE = roe === 0 ? true : columnROE > roe;
-
-         matchFilter.push(customFilterTicker);
-         matchFilter.push(customFilterPL);
-         matchFilter.push(customFilterROE);
          return matchFilter.every(Boolean);
       };
+   }
+
+
+   private maiorQue(value: number, rowValue: number) {
+      return value === 0 ? true : rowValue > value;
+   }
+
+   private menorQue(value: number, rowValue: number) {
+      return value === 0 ? true : rowValue < value;
    }
 }
 
