@@ -13,7 +13,7 @@ export class ListagemAcoesComponent implements OnInit {
    }
 
    public executeSelectedChange = (event) => {
-      console.log(event);
+
    }
 }
 

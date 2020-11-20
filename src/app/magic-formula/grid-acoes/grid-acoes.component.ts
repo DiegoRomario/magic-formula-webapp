@@ -21,7 +21,7 @@ import { AcaoService } from '../services/acao.services';
    styleUrls: ['./grid-acoes.component.css']
 })
 export class GridAcoesComponent implements OnInit {
-   public acoes: Acao[];
+   public acoes: Acao[] = [];
    @Input() criterio: ECriterio = ECriterio.PL_ROE;
    errorMessage: string;
    @ViewChild(MatPaginator) paginator: MatPaginator;

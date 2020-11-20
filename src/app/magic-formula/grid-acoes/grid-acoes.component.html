@@ -53,7 +53,7 @@
     </mat-form-field>
   </div>
 </form>
-<div *ngIf="acoes" class="container">
+<div *ngIf="acoes.length > 0" class="container">
   <div class="mat-elevation-z8">
     <div class="table-container">
       <table mat-table [dataSource]="dataSource" matSort matSortActive="pontuacao" matSortDirection="asc">
