@@ -7,7 +7,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomHttpInterceptor } from '../utils/http-interceptor';
 import { MagicFormulaRoutingModule } from './magic-formula.routing.module';
 import { ListagemAcoesComponent } from './listagem-acoes/listagem-acoes.component';
-import { UsuarioGuard } from '../usuario/services/usuario.guard';
 import { MagicFormulaComponent } from './magic-formula.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AcaoService } from './services/acao.services';
@@ -32,7 +31,6 @@ import { GridAcoesComponent } from './grid-acoes/grid-acoes.component';
     DatePipe,
     CurrencyPipe,
     DynamicPipe,
-    UsuarioGuard,
     AcaoService,
     {
       provide: HTTP_INTERCEPTORS,

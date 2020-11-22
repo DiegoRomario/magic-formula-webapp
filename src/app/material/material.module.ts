@@ -17,8 +17,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSliderModule } from '@angular/material/slider';
 import { getPortuguesePaginatorIntl } from '../utils/portuguese-paginator-intl';
+import { CustomDialogComponent } from './custom-dialog/custom-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 @NgModule({
-  declarations: [ErrorListComponent],
+  declarations: [ErrorListComponent, CustomDialogComponent],
   imports: [
     CommonModule,
     MatTabsModule,
@@ -36,6 +39,7 @@ import { getPortuguesePaginatorIntl } from '../utils/portuguese-paginator-intl';
     MatTableModule,
     MatPaginatorModule,
     MatSliderModule,
+    MatButtonModule, MatDialogModule, MatIconModule, DragDropModule
   ],
   exports: [
     MatTabsModule,
@@ -54,6 +58,8 @@ import { getPortuguesePaginatorIntl } from '../utils/portuguese-paginator-intl';
     MatTableModule,
     MatPaginatorModule,
     MatSliderModule,
+    MatButtonModule, MatDialogModule, MatIconModule, DragDropModule,
+    CustomDialogComponent
   ],
   providers: [
     { provide: MatPaginatorIntl, useValue: getPortuguesePaginatorIntl() }

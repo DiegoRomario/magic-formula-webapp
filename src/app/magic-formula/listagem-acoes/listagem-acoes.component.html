@@ -1,10 +1,10 @@
 <section fxLayout="column" fxFlexAlign="stretch">
-  <mat-tab-group (selectedTabChange)="executeSelectedChange($event)">
+  <mat-tab-group>
     <mat-tab label="PL + ROE">
       <m4-grid-acoes [criterio]="criterio.PL_ROE"></m4-grid-acoes>
     </mat-tab>
     <mat-tab label="EV/EBIT + ROIC">
-      <m4-grid-acoes [criterio]="criterio.EVEBIT_ROIC"></m4-grid-acoes>>
+      <m4-grid-acoes [criterio]="criterio.EVEBIT_ROIC"></m4-grid-acoes>
     </mat-tab>
   </mat-tab-group>
 </section>

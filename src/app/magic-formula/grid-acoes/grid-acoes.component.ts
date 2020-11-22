@@ -65,7 +65,7 @@ export class GridAcoesComponent implements OnInit {
             this.dataSource.sort = this.sort;
             this.dataSource.paginator = this.paginator;
             this.dataSource.filterPredicate = this.getFilterPredicate();
-         }, 500);
+         }, 100);
       })).subscribe(
          (acoes) => {
             this.acoes = acoes;

@@ -21,10 +21,12 @@ const contaRouterConfig: Routes = [
       {
         path: 'confirmacao-email/:email/:token',
         component: ConfirmacaoEmailComponent,
+        canActivate: [UsuarioGuard],
       },
       {
         path: 'bem-vindo',
         component: BemVindoComponent,
+        canActivate: [UsuarioGuard],
       },
     ],
   },
@@ -33,4 +35,4 @@ const contaRouterConfig: Routes = [
   imports: [RouterModule.forChild(contaRouterConfig)],
   exports: [RouterModule],
 })
-export class UsuarioRoutingModule {}
+export class UsuarioRoutingModule { }

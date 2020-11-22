@@ -12,8 +12,6 @@ export class ListagemAcoesComponent implements OnInit {
    ngOnInit(): void {
    }
 
-   public executeSelectedChange = (event) => {
 
-   }
 }
 
