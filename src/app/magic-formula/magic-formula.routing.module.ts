@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { UsuarioGuard } from '../usuario/services/usuario.guard';
 import { ListagemAcoesComponent } from './listagem-acoes/listagem-acoes.component';
 import { MagicFormulaComponent } from './magic-formula.component';
 const acoesRouterConfig: Routes = [
@@ -10,9 +9,7 @@ const acoesRouterConfig: Routes = [
     children: [
       {
         path: 'acoes',
-        component: ListagemAcoesComponent,
-        canActivate: [UsuarioGuard],
-        canDeactivate: [UsuarioGuard]
+        component: ListagemAcoesComponent
       },
     ],
   },

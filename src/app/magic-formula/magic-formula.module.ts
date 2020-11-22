@@ -7,14 +7,13 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CustomHttpInterceptor } from '../utils/http-interceptor';
 import { MagicFormulaRoutingModule } from './magic-formula.routing.module';
 import { ListagemAcoesComponent } from './listagem-acoes/listagem-acoes.component';
-import { UsuarioGuard } from '../usuario/services/usuario.guard';
 import { MagicFormulaComponent } from './magic-formula.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AcaoService } from './services/acao.services';
-import { AcaoResolver } from './services/acao.resolver';
 import { DynamicPipe } from '../utils/dynamic.pipe';
+import { GridAcoesComponent } from './grid-acoes/grid-acoes.component';
 @NgModule({
-  declarations: [MagicFormulaComponent, ListagemAcoesComponent,
+  declarations: [MagicFormulaComponent, ListagemAcoesComponent, GridAcoesComponent,
     DynamicPipe],
   imports: [
     CommonModule,
@@ -32,14 +31,12 @@ import { DynamicPipe } from '../utils/dynamic.pipe';
     DatePipe,
     CurrencyPipe,
     DynamicPipe,
-    UsuarioGuard,
     AcaoService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomHttpInterceptor,
       multi: true,
-    },
-    AcaoResolver,
+    }
   ],
 })
 export class MagicFormulaModule { }

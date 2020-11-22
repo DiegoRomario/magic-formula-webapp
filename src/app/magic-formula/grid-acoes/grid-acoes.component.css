@@ -47,4 +47,6 @@ th.mat-sort-header-sorted {
   height: 38px !important;
 } 
 
- 
+.highlight {
+background-color: whitesmoke; 
+}

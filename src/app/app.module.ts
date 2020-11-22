@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { RouterModule } from '@angular/router';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { CustomDialogComponent } from './material/custom-dialog/custom-dialog.component';
 
 registerLocaleData(localePt);
 @NgModule({
@@ -33,6 +34,7 @@ registerLocaleData(localePt);
   bootstrap: [AppComponent],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' }
-  ]
+  ],
+  entryComponents: [CustomDialogComponent],
 })
 export class AppModule { }

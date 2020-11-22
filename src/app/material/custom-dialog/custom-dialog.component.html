@@ -1,0 +1,13 @@
+<h1 mat-dialog-title cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragHandle>
+  <mat-icon>announcement</mat-icon>
+  {{title}}
+</h1>
+
+<div mat-dialog-content>
+  <p>{{message}}</p>
+</div>
+
+<div mat-dialog-actions>
+  <button mat-stroked-button color="warn" (click)="onDismiss()">Não</button>
+  <button mat-stroked-button color="primary" (click)="onConfirm()">Sim</button>
+</div>

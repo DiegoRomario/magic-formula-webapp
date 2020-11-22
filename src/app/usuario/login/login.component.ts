@@ -110,7 +110,7 @@ export class LoginComponent
       verticalPosition: 'bottom',
     });
 
-    this.router.navigate(['/home']);
+    this.router.navigate(['/magic-formula/acoes']);
   }
 
   processarFalha(fail: any) {
