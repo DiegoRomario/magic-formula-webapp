@@ -62,7 +62,8 @@
             {{col.label}}
           </th>
           <td class="fields" [ngClass]="[col.textAlign ? col.textAlign : '']" mat-cell *matCellDef="let element">
-            <span> {{element[col.key] | dynamic:col.pipe.toString()}}</span>
+            <span [ngClass]="[element['pontuacao'] > 5 ? 'noauth' : '']">
+              {{element[col.key] | dynamic:col.pipe.toString()}}</span>
 
           </td>
         </ng-container>
