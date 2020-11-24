@@ -1,6 +1,6 @@
 
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
@@ -60,7 +60,7 @@ export class GridAcoesComponent implements OnInit {
    ) { }
    ngOnInit(): void {
       this.formInit();
-      this.acaoServices.obterTodos(this.criterio).pipe(finalize(() => {
+      this.acaoServices.obterAcoesM4(this.criterio).pipe(finalize(() => {
          setTimeout(() => {
             this.dataSource.sort = this.sort;
             this.dataSource.paginator = this.paginator;

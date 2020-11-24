@@ -3,7 +3,6 @@ import {
     Pipe,
     PipeTransform
 } from '@angular/core';
-import { DynamicPipeDataType } from '../magic-formula/models/base/dynamic-pipe-data-type.enum';
 
 
 @Pipe({ name: 'dynamic' })
