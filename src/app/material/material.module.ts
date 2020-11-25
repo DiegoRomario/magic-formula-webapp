@@ -20,9 +20,11 @@ import { getPortuguesePaginatorIntl } from '../utils/portuguese-paginator-intl';
 import { CustomDialogComponent } from './custom-dialog/custom-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatTooltipModule } from '@angular/material/tooltip';
 @NgModule({
   declarations: [ErrorListComponent, CustomDialogComponent],
   imports: [
+
     CommonModule,
     MatTabsModule,
     MatSidenavModule,
@@ -39,7 +41,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatTableModule,
     MatPaginatorModule,
     MatSliderModule,
-    MatButtonModule, MatDialogModule, MatIconModule, DragDropModule
+    MatTooltipModule,
   ],
   exports: [
     MatTabsModule,
@@ -58,7 +60,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     MatTableModule,
     MatPaginatorModule,
     MatSliderModule,
-    MatButtonModule, MatDialogModule, MatIconModule, DragDropModule,
+    MatButtonModule, MatDialogModule, MatIconModule, DragDropModule, MatTooltipModule,
     CustomDialogComponent
   ],
   providers: [

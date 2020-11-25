@@ -12,6 +12,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { AcaoService } from './services/acao.services';
 import { DynamicPipe } from '../utils/dynamic.pipe';
 import { GridAcoesComponent } from './grid-acoes/grid-acoes.component';
+import { LocalStorageUtils } from '../utils/localstorage';
 @NgModule({
   declarations: [MagicFormulaComponent, ListagemAcoesComponent, GridAcoesComponent,
     DynamicPipe],
@@ -32,6 +33,7 @@ import { GridAcoesComponent } from './grid-acoes/grid-acoes.component';
     CurrencyPipe,
     DynamicPipe,
     AcaoService,
+    LocalStorageUtils,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomHttpInterceptor,

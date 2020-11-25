@@ -1,4 +1,5 @@
 export interface Acao {
+  pontuacao: number;
   ticker: string;
   cotacao: number;
   pl: number;
