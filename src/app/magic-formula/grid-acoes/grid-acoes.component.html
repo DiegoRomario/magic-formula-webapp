@@ -62,7 +62,8 @@
             {{col.label}}
           </th>
           <td class="fields" [ngClass]="[col.textAlign ? col.textAlign : '']" mat-cell *matCellDef="let element">
-            <span [ngClass]="[element['pontuacao'] > 5 ? 'noauth' : '']">
+            <span [routerLink]="!usuarioLogado && element?.pontuacao > 5 ? ['/usuario/login'] : []"
+              [ngClass]="[element['pontuacao'] > 5 && !usuarioLogado ? 'noauth' : '']">
               {{element[col.key] | dynamic:col.pipe.toString()}}</span>
 
           </td>
@@ -80,4 +81,10 @@
 
     <mat-paginator [pageSizeOptions]="[20, 50, 100]" showFirstLastButtons></mat-paginator>
   </div>
+</div>
+<div *ngIf="acoes.length > 0 && !usuarioLogado" class="center">
+  <button routerLink='/usuario/login' mat-fab matTooltip="Efetue o login para visualizar todos os registros"
+    color="primary" aria-label="Log-in" matTooltipClass="tooltip">
+    <mat-icon>lock</mat-icon>
+  </button>
 </div>

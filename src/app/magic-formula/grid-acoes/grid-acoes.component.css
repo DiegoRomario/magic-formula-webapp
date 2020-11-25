@@ -29,7 +29,11 @@ th.mat-sort-header-sorted {
 .left {
   text-align: left;
 }
-
+.center {
+ position: absolute; 
+ left: 50%; 
+ top: 50%;
+}
 ::ng-deep .headers {
   white-space: nowrap;
   min-width: 40px;
@@ -51,14 +55,20 @@ th.mat-sort-header-sorted {
 background-color: whitesmoke; 
 }
 
-
 .noauth {
-  filter:blur(5px);
   cursor: not-allowed;
+  filter:blur(5px);
     -webkit-touch-callout: none;
       -webkit-user-select: none;
        -khtml-user-select: none;
          -moz-user-select: none;
           -ms-user-select: none;
-              user-select: none;}
+              user-select: none;
+}
 
+
+
+::ng-deep .tooltip {
+  background-color: rgba(24, 10, 7, 0.561);
+  font-size: 14px;
+}

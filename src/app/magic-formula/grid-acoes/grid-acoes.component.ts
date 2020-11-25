@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { finalize } from 'rxjs/operators';
+import { LocalStorageUtils } from 'src/app/utils/localstorage';
 import { SpinnerService } from 'src/app/utils/spinner.service';
 import { AcaoParams } from '../models/acao-params.model';
 import { Acao } from '../models/acao.model';
@@ -22,6 +23,7 @@ import { AcaoService } from '../services/acao.services';
 })
 export class GridAcoesComponent implements OnInit {
    public acoes: Acao[] = [];
+   public usuarioLogado = false;
    @Input() criterio: ECriterio = ECriterio.PL_ROE;
    errorMessage: string;
    @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -56,8 +58,11 @@ export class GridAcoesComponent implements OnInit {
    constructor(
       private acaoServices: AcaoService,
       public spinnerService: SpinnerService,
-      private snackBar: MatSnackBar
-   ) { }
+      private snackBar: MatSnackBar,
+      private localStorage: LocalStorageUtils
+   ) {
+      this.usuarioLogado = this.localStorage.obterTokenUsuario() !== null;
+   }
    ngOnInit(): void {
       this.formInit();
       this.acaoServices.obterAcoesM4(this.criterio).pipe(finalize(() => {
