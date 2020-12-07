@@ -10,7 +10,7 @@ import { ListagemAcoesComponent } from './listagem-acoes/listagem-acoes.componen
 import { MagicFormulaComponent } from './magic-formula.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AcaoService } from './services/acao.services';
-import { DynamicPipe } from '../utils/dynamic.pipe';
+import { DynamicPipe } from '../pipes/dynamic.pipe';
 import { GridAcoesComponent } from './grid-acoes/grid-acoes.component';
 import { LocalStorageUtils } from '../utils/localstorage';
 @NgModule({

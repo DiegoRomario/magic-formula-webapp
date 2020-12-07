@@ -30,6 +30,6 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.localStorageUtils.limparDadosLocaisUsuario();
-    this.router.navigate(['/home']);
+    this.router.navigate(['/magic-formula/acoes']);
   }
 }
