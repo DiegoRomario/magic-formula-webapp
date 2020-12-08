@@ -5,7 +5,7 @@ import { HttpRequest } from '@angular/common/http';
 import { HttpHandler } from '@angular/common/http';
 import { HttpEvent } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
-import { SpinnerService } from './spinner.service';
+import { SpinnerService } from '../services/spinner.service';
 
 @Injectable()
 export class CustomHttpInterceptor implements HttpInterceptor {

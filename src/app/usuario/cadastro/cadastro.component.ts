@@ -15,7 +15,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { FormBaseComponent } from 'src/app/utils/form-base.component';
 import { MustMatch } from 'src/app/utils/must-mach.validator';
-import { SpinnerService } from 'src/app/utils/spinner.service';
+import { SpinnerService } from 'src/app/services/spinner.service';
 import { Usuario } from '../models/usuario.model';
 import { UsuarioService } from '../services/usuario.service';
 

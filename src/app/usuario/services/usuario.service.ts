@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Usuario } from '../models/usuario.model';
-import { BaseService } from 'src/app/utils/base.service';
+import { BaseService } from 'src/app/services/base.service';
 import { UsuarioConfirmacaoEmail } from '../models/usuario-confirmacao-email.model';
 import { UsuarioLogado } from '../models/usuario.logado';
 

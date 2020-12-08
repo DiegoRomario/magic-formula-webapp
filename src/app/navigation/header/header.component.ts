@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/usuario/models/usuario.model';
-import { LocalStorageUtils } from 'src/app/utils/localstorage';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 @Component({
   selector: 'm4-header',
@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
 
   token = '';
   usuario: Usuario;
-  localStorageUtils = new LocalStorageUtils();
+  localStorageUtils = new LocalStorageService();
 
   ngOnInit(): void {}
   public onToggleSidenav = () => {
