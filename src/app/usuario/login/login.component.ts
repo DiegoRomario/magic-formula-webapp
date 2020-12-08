@@ -31,7 +31,7 @@ export class LoginComponent
 
   errors: any[] = [];
   loginForm: FormGroup;
-  usuario: Usuario = new Usuario();
+  usuario: Usuario;
   hide = true;
   showSpinner: boolean;
   returnUrl: string;

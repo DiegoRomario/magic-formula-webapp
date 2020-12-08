@@ -7,6 +7,7 @@ import { Usuario } from '../models/usuario.model';
 import { BaseService } from 'src/app/services/base.service';
 import { UsuarioConfirmacaoEmail } from '../models/usuario-confirmacao-email.model';
 import { UsuarioLogado } from '../models/usuario.logado';
+import { ResponseMessage } from 'src/app/utils/response-message.model';
 
 @Injectable()
 export class UsuarioService extends BaseService {
@@ -14,7 +15,7 @@ export class UsuarioService extends BaseService {
     super();
   }
 
-  registrarUsuario(usuario: Usuario): Observable<Usuario> {
+  registrarUsuario(usuario: Usuario): Observable<ResponseMessage> {
     const response = this.http
       .post(
         this.UrlServiceV1 + 'usuario/cadastrar',

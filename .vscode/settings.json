@@ -1,0 +1,5 @@
+{
+    "editor.tabCompletion": "on",
+    "emmet.showSuggestionsAsSnippets": true,
+    "search.quickOpen.includeSymbols": true
+}
