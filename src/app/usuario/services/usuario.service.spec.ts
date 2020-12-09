@@ -5,6 +5,7 @@ import { Usuario } from '../models/usuario.model';
 import { ResponseMessage } from 'src/app/utils/response-message.model';
 import { UsuarioLogin } from '../models/usuario-login.model';
 import { UsuarioLogado } from '../models/usuario.logado';
+import { UsuarioConfirmacaoEmail } from '../models/usuario-confirmacao-email.model';
 describe('Usuário Service', () => {
     let httpMock: HttpTestingController;
     let service: UsuarioService;
@@ -70,5 +71,23 @@ describe('Usuário Service', () => {
         tick();
     }));
 
+
+    it('Dado e-mail e token validos deve confirmar cadastro de usuário', fakeAsync(() => {
+        const usuarioConfirmacaoEmail: UsuarioConfirmacaoEmail =
+        {
+            email: 'diego@diego.com.br',
+            token: '123456',
+        };
+        const responseMessage: ResponseMessage = { message: 'E-mail confirmado com sucesso.' };
+        service.confirmarEmailUsuario(usuarioConfirmacaoEmail).subscribe((response) => {
+            expect(response).toEqual(responseMessage);
+        });
+        const request = httpMock.expectOne(req => {
+            return req.method === 'POST';
+        });
+        request.flush(responseMessage
+        );
+        tick();
+    }));
 
 });
