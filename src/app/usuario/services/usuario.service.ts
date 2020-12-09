@@ -8,6 +8,7 @@ import { BaseService } from 'src/app/services/base.service';
 import { UsuarioConfirmacaoEmail } from '../models/usuario-confirmacao-email.model';
 import { UsuarioLogado } from '../models/usuario.logado';
 import { ResponseMessage } from 'src/app/utils/response-message.model';
+import { UsuarioLogin } from '../models/usuario-login.model';
 
 @Injectable()
 export class UsuarioService extends BaseService {
@@ -27,7 +28,7 @@ export class UsuarioService extends BaseService {
     return response;
   }
 
-  login(usuario: Usuario): Observable<UsuarioLogado> {
+  login(usuario: UsuarioLogin): Observable<UsuarioLogado> {
     const response = this.http
       .post(
         this.UrlServiceV1 + 'usuario/entrar',

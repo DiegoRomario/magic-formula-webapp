@@ -17,6 +17,7 @@ import { FormBaseComponent } from 'src/app/utils/form-base.component';
 import { SpinnerService } from 'src/app/services/spinner.service';
 import { Usuario } from '../models/usuario.model';
 import { UsuarioService } from '../services/usuario.service';
+import { UsuarioLogin } from '../models/usuario-login.model';
 
 @Component({
   selector: 'm4-login',
@@ -31,7 +32,7 @@ export class LoginComponent
 
   errors: any[] = [];
   loginForm: FormGroup;
-  usuario: Usuario;
+  usuario: UsuarioLogin;
   hide = true;
   showSpinner: boolean;
   returnUrl: string;

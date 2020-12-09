@@ -27,23 +27,18 @@ describe('Usuário Service', () => {
             sobrenome: 'Romário',
             email: 'diego@diego.com.br',
             senha: '123456',
-            senhaConfirmacao: '123456'
         };
         const responseMessage: ResponseMessage = { message: 'Usuário cadastrado com sucesso! Um e-mail foi enviado para confirmação do cadastro.' };
         service.registrarUsuario(usuario).subscribe((response) => {
             expect(response).toEqual(responseMessage);
         });
-
         const request = httpMock.expectOne(req => {
             return req.method === 'POST';
         });
-
-
         request.flush(responseMessage
         );
-
         tick();
-
     }));
+
 
 });
