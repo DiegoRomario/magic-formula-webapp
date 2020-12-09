@@ -1,6 +1,6 @@
 import { UsuarioClaim } from './usuario.claim';
 
-export class UsuarioLogado {
+export interface UsuarioLogado {
   id: string;
   nome: string;
   email: string;

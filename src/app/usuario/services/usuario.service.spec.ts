@@ -3,6 +3,8 @@ import { UsuarioService } from './usuario.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { Usuario } from '../models/usuario.model';
 import { ResponseMessage } from 'src/app/utils/response-message.model';
+import { UsuarioLogin } from '../models/usuario-login.model';
+import { UsuarioLogado } from '../models/usuario.logado';
 describe('Usuário Service', () => {
     let httpMock: HttpTestingController;
     let service: UsuarioService;
@@ -37,6 +39,34 @@ describe('Usuário Service', () => {
         });
         request.flush(responseMessage
         );
+        tick();
+    }));
+
+    it('Dado usuário e senha validos deve logar corretamente', fakeAsync(() => {
+        const login: UsuarioLogin = {
+            email: 'diego.romario@outlook.com',
+            senha: '123456789'
+        };
+        const usuarioLogado: UsuarioLogado = {
+            id: 'cf0d740b-b7a5-4a76-ad3a-3a2600277c6c',
+            nome: 'Diego',
+            email: 'diego.romario@outlook.com',
+            accessToken: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9',
+            expiresIn: '7200.0',
+            claims: [
+                {
+                    value: '1aa7f0d8-e6ec-4c4d-bd37-2e151df220f2',
+                    type: 'jti'
+                }
+            ]
+        };
+        service.login(login).subscribe((response) => {
+            expect(response).toEqual(usuarioLogado);
+        });
+        const request = httpMock.expectOne(req => {
+            return req.method === 'POST';
+        });
+        request.flush(usuarioLogado);
         tick();
     }));
 
