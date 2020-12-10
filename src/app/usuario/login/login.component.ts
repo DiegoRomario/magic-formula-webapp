@@ -1,23 +1,16 @@
 import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChildren,
+  AfterViewInit, Component, ElementRef, OnInit, ViewChildren
 } from '@angular/core';
 import {
-  FormBuilder,
-  FormControlName,
-  FormGroup,
-  Validators,
+  FormBuilder, FormControlName, FormGroup, Validators,
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBaseComponent } from 'src/app/utils/form-base.component';
 import { SpinnerService } from 'src/app/services/spinner.service';
-import { Usuario } from '../models/usuario.model';
 import { UsuarioService } from '../services/usuario.service';
 import { UsuarioLogin } from '../models/usuario-login.model';
+import { UsuarioLogado } from '../models/usuario.logado';
 
 @Component({
   selector: 'm4-login',
@@ -41,7 +34,6 @@ export class LoginComponent
     private fb: FormBuilder,
     private usuarioService: UsuarioService,
     private router: Router,
-    private route: ActivatedRoute,
     private snackBar: MatSnackBar,
     public spinnerService: SpinnerService
   ) {
@@ -100,17 +92,14 @@ export class LoginComponent
     }
   }
 
-  processarSucesso(response: any) {
-    // this.loginForm.reset();
+  processarSucesso(response: UsuarioLogado) {
     this.errors = [];
     this.usuarioService.LocalStorage.salvarDadosLocaisUsuario(response);
-
     this.snackBar.open('Login efetuado com sucesso!', null, {
       duration: 5000,
       horizontalPosition: 'center',
       verticalPosition: 'bottom',
     });
-
     this.router.navigate(['/magic-formula/acoes']);
   }
 
