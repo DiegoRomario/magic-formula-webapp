@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { SpinnerService } from './utils/spinner.service';
+import { SpinnerService } from './services/spinner.service';
 
 @Component({
   selector: 'm4-root',

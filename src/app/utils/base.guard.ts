@@ -1,8 +1,8 @@
 import { Router, ActivatedRouteSnapshot } from '@angular/router';
-import { LocalStorageUtils } from 'src/app/utils/localstorage';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 
 export abstract class BaseGuard {
-  private localStorageUtils = new LocalStorageUtils();
+  private localStorageUtils = new LocalStorageService();
 
   constructor(protected router: Router) {}
   protected validarClaims(routeAc: ActivatedRouteSnapshot): boolean {
@@ -12,24 +12,25 @@ export abstract class BaseGuard {
       });
     }
 
-    let user = this.localStorageUtils.obterUsuario();
+    const user = this.localStorageUtils.obterUsuario();
 
-    let claim: any = routeAc.data[0];
+    const claim: any = routeAc.data[0];
     if (claim !== undefined) {
-      let claim = routeAc.data[0]['claim'];
+      // tslint:disable-next-line: no-shadowed-variable
+      const claim = routeAc.data[0].claim;
 
       if (claim) {
         if (!user.claims) {
           this.navegarAcessoNegado();
         }
 
-        let userClaims = user.claims.find((x) => x.type === claim.nome);
+        const userClaims = user.claims.find((x) => x.type === claim.nome);
 
         if (!userClaims) {
           this.navegarAcessoNegado();
         }
 
-        let valoresClaim = userClaims.value as string;
+        const valoresClaim = userClaims.value as string;
 
         if (!valoresClaim.includes(claim.valor)) {
           this.navegarAcessoNegado();

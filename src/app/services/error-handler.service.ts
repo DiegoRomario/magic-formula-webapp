@@ -10,14 +10,14 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { LocalStorageUtils } from '../utils/localstorage';
+import { LocalStorageService } from './local-storage.service';
 import { Router } from '@angular/router';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
   constructor(private router: Router) {}
 
-  localStorageUtil = new LocalStorageUtils();
+  localStorageUtil = new LocalStorageService();
 
   intercept(
     req: HttpRequest<any>,

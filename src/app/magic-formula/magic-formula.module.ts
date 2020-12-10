@@ -10,9 +10,9 @@ import { ListagemAcoesComponent } from './listagem-acoes/listagem-acoes.componen
 import { MagicFormulaComponent } from './magic-formula.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AcaoService } from './services/acao.services';
-import { DynamicPipe } from '../utils/dynamic.pipe';
+import { DynamicPipe } from '../pipes/dynamic.pipe';
 import { GridAcoesComponent } from './grid-acoes/grid-acoes.component';
-import { LocalStorageUtils } from '../utils/localstorage';
+import { LocalStorageService } from '../services/local-storage.service';
 @NgModule({
   declarations: [MagicFormulaComponent, ListagemAcoesComponent, GridAcoesComponent,
     DynamicPipe],
@@ -33,7 +33,7 @@ import { LocalStorageUtils } from '../utils/localstorage';
     CurrencyPipe,
     DynamicPipe,
     AcaoService,
-    LocalStorageUtils,
+    LocalStorageService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: CustomHttpInterceptor,

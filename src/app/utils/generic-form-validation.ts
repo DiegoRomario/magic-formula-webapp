@@ -4,13 +4,13 @@ export class GenericValidator {
     constructor(private validationMessages: ValidationMessages) { }
 
     processarMensagens(container: FormGroup): { [key: string]: string } {
-        let messages = {};
-        for (let controlKey in container.controls) {
+        const messages = {};
+        for (const controlKey in container.controls) {
             if (container.controls.hasOwnProperty(controlKey)) {
-                let c = container.controls[controlKey];
+                const c = container.controls[controlKey];
 
                 if (c instanceof FormGroup) {
-                    let childMessages = this.processarMensagens(c);
+                    const childMessages = this.processarMensagens(c);
                     Object.assign(messages, childMessages);
                 } else {
                     if (this.validationMessages[controlKey]) {
@@ -31,8 +31,8 @@ export class GenericValidator {
 }
 
 export interface DisplayMessage {
-    [key: string]: string
+    [key: string]: string;
 }
 export interface ValidationMessages {
-    [key: string]: { [key: string]: string } 
+    [key: string]: { [key: string]: string; };
 }

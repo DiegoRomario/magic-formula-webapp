@@ -15,9 +15,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { FormBaseComponent } from 'src/app/utils/form-base.component';
 import { MustMatch } from 'src/app/utils/must-mach.validator';
-import { SpinnerService } from 'src/app/utils/spinner.service';
+import { SpinnerService } from 'src/app/services/spinner.service';
 import { Usuario } from '../models/usuario.model';
 import { UsuarioService } from '../services/usuario.service';
+import { ResponseMessage } from 'src/app/utils/response-message.model';
 
 @Component({
   selector: 'm4-cadastro-usuario',
@@ -147,7 +148,7 @@ export class CadastroComponent
     }
   }
 
-  processarSucesso(sucesso: any) {
+  processarSucesso(sucesso: ResponseMessage) {
     this.snackBar.open(sucesso.message, null, {
       duration: 5000,
       horizontalPosition: 'center',

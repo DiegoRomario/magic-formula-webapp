@@ -4,9 +4,11 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Usuario } from '../models/usuario.model';
-import { BaseService } from 'src/app/utils/base.service';
+import { BaseService } from 'src/app/services/base.service';
 import { UsuarioConfirmacaoEmail } from '../models/usuario-confirmacao-email.model';
 import { UsuarioLogado } from '../models/usuario.logado';
+import { ResponseMessage } from 'src/app/utils/response-message.model';
+import { UsuarioLogin } from '../models/usuario-login.model';
 
 @Injectable()
 export class UsuarioService extends BaseService {
@@ -14,7 +16,7 @@ export class UsuarioService extends BaseService {
     super();
   }
 
-  registrarUsuario(usuario: Usuario): Observable<Usuario> {
+  registrarUsuario(usuario: Usuario): Observable<ResponseMessage> {
     const response = this.http
       .post(
         this.UrlServiceV1 + 'usuario/cadastrar',
@@ -26,7 +28,7 @@ export class UsuarioService extends BaseService {
     return response;
   }
 
-  login(usuario: Usuario): Observable<UsuarioLogado> {
+  login(usuario: UsuarioLogin): Observable<UsuarioLogado> {
     const response = this.http
       .post(
         this.UrlServiceV1 + 'usuario/entrar',

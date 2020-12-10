@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SpinnerService } from 'src/app/utils/spinner.service';
+import { SpinnerService } from 'src/app/services/spinner.service';
 import { UsuarioConfirmacaoEmail } from '../models/usuario-confirmacao-email.model';
 import { UsuarioService } from '../services/usuario.service';
 

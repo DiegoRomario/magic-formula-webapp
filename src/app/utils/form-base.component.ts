@@ -26,7 +26,7 @@ export abstract class FormBaseComponent {
     formInputElements: ElementRef[],
     formGroup: FormGroup
   ) {
-    let controlBlurs: Observable<
+    const controlBlurs: Observable<
       any
     >[] = formInputElements.map((formControl: ElementRef) =>
       fromEvent(formControl.nativeElement, 'blur')

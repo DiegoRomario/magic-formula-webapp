@@ -1,17 +1,14 @@
 import { CurrencyPipe, DatePipe } from '@angular/common';
-import {
-    Pipe,
-    PipeTransform
-} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 
 @Pipe({ name: 'dynamic' })
 export class DynamicPipe implements PipeTransform {
-    constructor(private datePipe: DatePipe, private currencyPipe: CurrencyPipe) {
+    constructor(private datePipe: DatePipe,
+                private currencyPipe: CurrencyPipe) {
     }
     transform(value: string, modifier: string) {
         if (!modifier || (modifier === 'default')) { return value; }
-        // tslint:disable-next-line: no-eval
         return eval('this.' + modifier + '(\'' + value + '\')');
     }
 

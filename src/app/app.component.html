@@ -6,18 +6,9 @@
     <mat-sidenav-content>
       <m4-header (sidenavToggle)="sidenav.toggle()"></m4-header>
       <main>
-        
-<div
-*ngIf=" spinnerService.visibility | async"
-style="position: fixed; top: 46%; left: 48.2%"
->
-<mat-spinner
-  style="margin: 0 auto"
-  color="accent"
-  class="spinner-alignment"
-  [diameter]="75"
-></mat-spinner>
-</div>
+        <div *ngIf=" spinnerService.visibility | async" style="position: fixed; top: 46%; left: 48.2%">
+          <mat-spinner style="margin: 0 auto" color="accent" class="spinner-alignment" [diameter]="75"></mat-spinner>
+        </div>
         <router-outlet></router-outlet>
       </main>
     </mat-sidenav-content>

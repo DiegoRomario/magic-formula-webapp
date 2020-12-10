@@ -3,13 +3,13 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
-import { BaseService } from 'src/app/utils/base.service';
+import { BaseService } from 'src/app/services/base.service';
 import { Acao } from '../models/acao.model';
 import { ECriterio } from '../models/criterio.enum.model';
-import { LocalStorageUtils } from 'src/app/utils/localstorage';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
 @Injectable({ providedIn: 'root' })
 export class AcaoService extends BaseService {
-  constructor(private http: HttpClient, private localStorage: LocalStorageUtils) {
+  constructor(private http: HttpClient, private localStorage: LocalStorageService) {
     super();
   }
 

@@ -6,8 +6,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { finalize } from 'rxjs/operators';
-import { LocalStorageUtils } from 'src/app/utils/localstorage';
-import { SpinnerService } from 'src/app/utils/spinner.service';
+import { LocalStorageService } from 'src/app/services/local-storage.service';
+import { SpinnerService } from 'src/app/services/spinner.service';
 import { AcaoParams } from '../models/acao-params.model';
 import { Acao } from '../models/acao.model';
 import { ColumnsDefinition } from '../models/base/columns-definition.model';
@@ -59,7 +59,7 @@ export class GridAcoesComponent implements OnInit {
       private acaoServices: AcaoService,
       public spinnerService: SpinnerService,
       private snackBar: MatSnackBar,
-      private localStorage: LocalStorageUtils
+      private localStorage: LocalStorageService
    ) {
       this.usuarioLogado = this.localStorage.obterTokenUsuario() !== null;
    }
