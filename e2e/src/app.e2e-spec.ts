@@ -8,9 +8,9 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('deve apresentar mensagem de boas viandas', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('magic-formula-webapp app is running!');
+    expect(page.getTitleText()).toEqual('Welcome!');
   });
 
   afterEach(async () => {
