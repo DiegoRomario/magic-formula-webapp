@@ -1,14 +1,14 @@
-import { AppPage } from './app.po';
+import { AppHomePage } from './app.home.po';
 import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
-  let page: AppPage;
+describe('Home Page', () => {
+  let page: AppHomePage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new AppHomePage();
   });
 
-  it('deve apresentar mensagem de boas viandas', () => {
+  it('deve apresentar mensagem de boas vindas', () => {
     page.navigateTo();
     expect(page.getTitleText()).toEqual('Welcome!');
   });
