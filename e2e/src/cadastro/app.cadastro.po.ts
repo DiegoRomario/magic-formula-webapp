@@ -29,5 +29,8 @@ export class AppCadastroPage extends AppBasePage {
   obterTituloCadastro() {
     return this.obterElementoXpath('//*[@id="cadastrar"]').getText();
   }
-
+  obterMensagemValidacaoSenhasDiferentes() {
+    return this.obterElementoXpath('/html/body/m4-root/m4-layout/div/div/mat-sidenav-container/mat-sidenav-content/main/m4-usuario/m4-cadastro-usuario/div/form/div/div[2]/mat-form-field[5]/div/div[3]/div/mat-hint').getText();
+  }
 }
+

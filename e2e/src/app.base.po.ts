@@ -21,7 +21,9 @@ export abstract class AppBasePage {
     obterElementoXpath(xpath: string) {
         return element(by.xpath(xpath));
     }
-
+    obterElementoId(id: string) {
+        return element(by.id(id));
+    }
     esperar = (milisegundos: number) => {
         browser.sleep(milisegundos);
     }

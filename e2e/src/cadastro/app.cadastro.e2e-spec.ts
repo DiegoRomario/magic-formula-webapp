@@ -24,6 +24,16 @@ describe('Testes do formulario de cadastro', () => {
         expect(browser.getCurrentUrl()).toContain('bem-vindo');
     });
 
+    it('Deve validar senhas diferentes', () => {
+        page.campoNome.sendKeys('Diego');
+        page.campoSobrenome.sendKeys('Souza');
+        page.campoEmail.sendKeys('diego.romario.apps@gmail.com');
+        page.campoSenha.sendKeys('987654321');
+        page.campoConfirmacaoSenha.sendKeys('666666666');
+        page.campoNome.click();
+        expect(page.obterMensagemValidacaoSenhasDiferentes()).toContain('não conferem');
+    });
+
     afterEach(async () => {
         // Assert that there are no errors emitted from the browser
         const logs = await browser.manage().logs().get(logging.Type.BROWSER);
