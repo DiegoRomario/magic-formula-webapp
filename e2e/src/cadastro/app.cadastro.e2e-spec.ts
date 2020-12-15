@@ -13,6 +13,17 @@ describe('Testes do formulario de cadastro', () => {
         expect(page.obterTituloCadastro()).toContain('Cadastrar');
     });
 
+    it('Deve cadastrar um usuário corretamente', () => {
+        page.campoNome.sendKeys('Diego');
+        page.campoSobrenome.sendKeys('Souza');
+        page.campoEmail.sendKeys('diego.romario.apps@gmail.com');
+        page.campoSenha.sendKeys('987654321');
+        page.campoConfirmacaoSenha.sendKeys('987654321');
+        page.botaoCadastrar.click();
+        page.esperar(3000);
+        expect(browser.getCurrentUrl()).toContain('bem-vindo');
+    });
+
     afterEach(async () => {
         // Assert that there are no errors emitted from the browser
         const logs = await browser.manage().logs().get(logging.Type.BROWSER);
