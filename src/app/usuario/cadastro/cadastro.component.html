@@ -8,12 +8,13 @@
       <div class="form-body">
         <mat-form-field class="justifier">
           <mat-label>Nome</mat-label>
-          <input matInput required class="form-input" formControlName="nome" />
+          <input id="nome" matInput required class="form-input" formControlName="nome" />
           <mat-hint [innerHTML]="displayMessage.nome"></mat-hint>
         </mat-form-field>
         <mat-form-field class="justifier">
           <mat-label>Sobrenome</mat-label>
           <input
+          id="sobrenome"
             matInput
             required
             class="form-input"
@@ -23,6 +24,7 @@
         </mat-form-field>
         <mat-form-field class="justifier">
           <input
+            id="email"
             matInput
             placeholder="Email"
             text="email"
@@ -34,6 +36,7 @@
         </mat-form-field>
         <mat-form-field class="justifier">
           <input
+            id="senha"
             matInput
             placeholder="Senha"
             [type]="hide ? 'password' : 'text'"
@@ -48,6 +51,7 @@
         </mat-form-field>
         <mat-form-field class="justifier">
           <input
+            id="senhaconfirmacao"
             matInput
             placeholder="Confirmação"
             [type]="hide ? 'password' : 'text'"
@@ -64,6 +68,7 @@
 
       <div class="form-footer">
         <button
+        id="botaocadastrar"
           [disabled]="
             !cadastroForm.valid || (spinnerService.visibility | async)
           "
@@ -74,7 +79,8 @@
 
           <div *ngIf="!(spinnerService.visibility | async)">
             <mat-icon>add</mat-icon>
-            Cadastrar
+            <span id="cadastrar">Cadastrar</span>
+            
           </div>
         </button>
       </div>

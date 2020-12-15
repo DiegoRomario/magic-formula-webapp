@@ -1,16 +1,5 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChildren,
-} from '@angular/core';
-import {
-  FormBuilder,
-  FormControlName,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChildren } from '@angular/core';
+import { FormBuilder, FormControlName, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { FormBaseComponent } from 'src/app/utils/form-base.component';

@@ -1,16 +1,16 @@
-import { AppPage } from './app.po';
+import { AppHomePage } from './app.home.po';
 import { browser, logging } from 'protractor';
 
-describe('workspace-project App', () => {
-  let page: AppPage;
+describe('Home Page', () => {
+  let page: AppHomePage;
 
   beforeEach(() => {
-    page = new AppPage();
+    page = new AppHomePage();
   });
 
-  it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getTitleText()).toEqual('magic-formula-webapp app is running!');
+  it('Deve exibir uma mensagem na pagina inicial', () => {
+    page.navegarParaHome();
+    expect(page.getTitleText()).toEqual('Welcome!');
   });
 
   afterEach(async () => {
