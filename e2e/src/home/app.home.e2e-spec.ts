@@ -8,8 +8,8 @@ describe('Home Page', () => {
     page = new AppHomePage();
   });
 
-  it('deve apresentar mensagem de boas vindas', () => {
-    page.navigateTo();
+  it('Deve exibir uma mensagem na pagina inicial', () => {
+    page.navegarParaHome();
     expect(page.getTitleText()).toEqual('Welcome!');
   });
 

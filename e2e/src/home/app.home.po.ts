@@ -1,11 +1,10 @@
-import { browser, by, element } from 'protractor';
+import { AppBasePage } from '../app.base.po';
 
-export class AppHomePage {
-  navigateTo(): Promise<unknown> {
-    return browser.get(browser.baseUrl) as Promise<unknown>;
-  }
+export class AppHomePage extends AppBasePage {
 
-  getTitleText(): Promise<string> {
-    return element(by.id('welcome')).getText() as Promise<string>;
+  constructor() { super(); }
+
+  getTitleText() {
+    return this.obterElementoXpath('//*[@id="welcome"]').getText()
   }
 }
