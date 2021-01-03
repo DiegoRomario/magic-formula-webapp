@@ -15,11 +15,11 @@ export class HeaderComponent implements OnInit {
   usuario: Usuario;
   localStorageUtils = new LocalStorageService();
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   public onToggleSidenav = () => {
     this.sidenavToggle.emit();
-  };
-  constructor(private router: Router) {}
+  }
+  constructor(private router: Router) { }
 
   usuarioLogado(): boolean {
     this.token = this.localStorageUtils.obterTokenUsuario();
@@ -30,6 +30,6 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.localStorageUtils.limparDadosLocaisUsuario();
-    this.router.navigate(['/magic-formula/acoes']);
+    this.router.navigate(['home']);
   }
 }

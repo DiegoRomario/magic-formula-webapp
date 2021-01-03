@@ -1,19 +1,20 @@
 <mat-nav-list>
-    <a mat-list-item routerLink="/magic-formula/acoes" (click)="onSidenavClose()">
+    <section *ngIf="usuarioLogado()">
+        <a class="semClick"  mat-list-item>        
+            <mat-icon>mood</mat-icon> <span class="nav-caption">Olá, {{ usuario.nome }}!</span>
+        </a>
+        <hr style="margin: 10px;">
+    </section>
+    <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
         <mat-icon>home</mat-icon> <span class="nav-caption">Home</span>
     </a>
-    <a mat-list-item routerLink="/owner" (click)="onSidenavClose()">
-        <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Owner Actions</span>   
+    <a *ngIf="!usuarioLogado()" mat-list-item routerLink="/usuario/login" (click)="onSidenavClose()">
+        <mat-icon>assignment_ind</mat-icon> <span class="nav-caption">Entrar</span>   
     </a>
-    <a mat-list-item routerLink="#" (click)="onSidenavClose()">
-        <mat-icon>account_balance</mat-icon><span class="nav-caption">Account Actions</span>
+    <a *ngIf="!usuarioLogado()" mat-list-item routerLink="/usuario/cadastro" (click)="onSidenavClose()">
+        <mat-icon>account_balance</mat-icon><span class="nav-caption">Cadastre-se</span>
+    </a>         
+    <a *ngIf="usuarioLogado()" mat-list-item  (click)="onSidenavClose(); logout()">
+        <mat-icon>exit_to_app</mat-icon> <span class="nav-caption">Sair</span>
     </a>
-    <mat-list-item [matMenuTriggerFor]="menu">
-        <mat-icon>unfold_more</mat-icon>
-        <a matline>Example</a>
-    </mat-list-item>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item (click)="onSidenavClose()">View profile</button>
-      <button mat-menu-item (click)="onSidenavClose()">Add contact</button>
-    </mat-menu>
 </mat-nav-list>

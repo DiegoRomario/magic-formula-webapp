@@ -1,5 +1,4 @@
 import { UsuarioLogado } from '../usuario/models/usuario.logado';
-
 export class LocalStorageService {
   public obterUsuario() {
     return JSON.parse(localStorage.getItem('m4.usuario'));

@@ -1,8 +1,23 @@
-mat-sidenav-container, mat-sidenav-content, mat-sidenav {
-    height: 100%;
-}
- 
+mat-sidenav-container,
+mat-sidenav-content,
 mat-sidenav {
-    width: 250px;
+  height: 100%;
+  background-image: linear-gradient(
+    to right top,
+    #d4e4fb,
+    #d4e4fb,
+    #d4e4fb,
+    #d4e4fb,
+    #cde0fc,
+    #d4e4fb,
+    #dce8fb,
+    #e3ecfa,
+    #e6edfa,
+    #e8eef9,
+    #ebf0f9,
+    #edf1f8
+  );
 }
- 
+mat-sidenav {
+  width: 250px;
+}
