@@ -19,7 +19,9 @@ p {
 
 a {
   text-decoration: none;
-  color: #008cba;
+
+  font-weight: 500;
+  color: #3f51b5;
 }
 
 aside {
@@ -32,7 +34,7 @@ article {
   float: left;
   width: 50%;
   margin: auto;
-  padding-top: 1%;
+  padding-top: 2%;
 }
 
 .center {
