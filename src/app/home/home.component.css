@@ -1,4 +1,51 @@
-div {
-	background-image: url("./../../assets/mulher.svg");
-	background-repeat:no-repeat;
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+p {
+  text-indent: 50px;
+  text-align: justify;
+  letter-spacing: 3px;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+}
+
+a {
+  text-decoration: none;
+  color: #008cba;
+}
+
+aside {
+  float: left;
+  width: 50%;
+  align-items: center;
+}
+
+article {
+  float: left;
+  width: 50%;
+  margin: auto;
+  padding-top: 1%;
+}
+
+.center {
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 1200px) {
+  aside,
+  article {
+    width: 100%;
+    height: auto;
   }
+}

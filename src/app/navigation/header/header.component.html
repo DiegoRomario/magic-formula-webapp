@@ -5,8 +5,8 @@
     </button>
   </div>
   <div>
-    <a style="font-size: 40px" routerLink="/magic-formula/acoes">🧙 </a>
-    <a routerLink="/magic-formula/acoes">Magic Formula</a>
+    <a style="font-size: 40px" routerLink="/home">🧙 </a>
+    <a routerLink="/home">Magic Formula</a>
   </div>
 
   <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
@@ -16,6 +16,11 @@
       fxLayoutGap="15px"
       class="navigation-items"
     >
+    <li *ngSwitchCase="false">
+      <button [routerLink]="['home']" mat-flat-button color="accent">
+       Home
+      </button>
+    </li>
       <li *ngSwitchCase="false">
         <button [routerLink]="['usuario/login']" mat-flat-button color="accent">
           Entrar
@@ -28,15 +33,6 @@
           color="accent"
         >
           Cadastre-se
-        </button>
-      </li>
-      <li *ngSwitchCase="false">
-        <button
-          [routerLink]="['magic-formula/acoes']"
-          mat-flat-button
-          color="accent"
-        >
-          Ações
         </button>
       </li>
       <li *ngSwitchCase="true">
