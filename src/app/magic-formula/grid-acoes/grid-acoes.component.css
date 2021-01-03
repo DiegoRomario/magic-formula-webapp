@@ -1,11 +1,25 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
 .table-container {
   position: relative;
-  height: 65vh;
+  height: 60vh;
   overflow: auto;
-} 
+}
 .container {
-  margin:  20px;
-} 
+  margin-top: 20px;
+}
 table {
   width: 100%;
 }
@@ -15,12 +29,11 @@ th.mat-sort-header-sorted {
 }
 
 ::ng-deep .fields {
-  white-space: nowrap; 
+  white-space: nowrap;
   min-width: 40px;
   padding-left: 16px !important;
   padding-right: 16px !important;
-  border: 1px solid rgba(0,0,0,0.1);
-
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .right {
@@ -30,43 +43,42 @@ th.mat-sort-header-sorted {
   text-align: left;
 }
 .center {
- position: absolute; 
- left: 50%; 
- top: 50%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
 }
 ::ng-deep .headers {
   white-space: nowrap;
   min-width: 40px;
-  padding-left: 16px !important; 
+  padding-left: 16px !important;
   padding-right: 16px !important;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   font-weight: 600;
 }
 
-::ng-deep  tr.mat-header-row {
+::ng-deep tr.mat-header-row {
   height: 48px !important;
 }
 
-::ng-deep tr.mat-row, tr.mat-footer-row {
+::ng-deep tr.mat-row,
+tr.mat-footer-row {
   height: 38px !important;
-} 
+}
 
 .highlight {
-background-color: whitesmoke; 
+  background-color: whitesmoke;
 }
 
 .noauth {
   cursor: not-allowed;
-  filter:blur(5px);
-    -webkit-touch-callout: none;
-      -webkit-user-select: none;
-       -khtml-user-select: none;
-         -moz-user-select: none;
-          -ms-user-select: none;
-              user-select: none;
+  filter: blur(5px);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-
-
 
 ::ng-deep .tooltip {
   background-color: rgba(24, 10, 7, 0.561);

@@ -21,6 +21,7 @@ import { CustomDialogComponent } from './custom-dialog/custom-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatExpansionModule } from '@angular/material/expansion';
 @NgModule({
   declarations: [ErrorListComponent, CustomDialogComponent],
   imports: [
@@ -42,6 +43,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatPaginatorModule,
     MatSliderModule,
     MatTooltipModule,
+    MatExpansionModule
   ],
   exports: [
     MatTabsModule,
@@ -60,7 +62,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTableModule,
     MatPaginatorModule,
     MatSliderModule,
-    MatButtonModule, MatDialogModule, MatIconModule, DragDropModule, MatTooltipModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatIconModule,
+    DragDropModule,
+    MatTooltipModule,
+    MatExpansionModule,
     CustomDialogComponent
   ],
   providers: [
