@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { CustomDialogComponent } from './material/custom-dialog/custom-dialog.component';
+import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 
 registerLocaleData(localePt);
 @NgModule({
@@ -21,7 +22,8 @@ registerLocaleData(localePt);
     LayoutComponent,
     HomeComponent,
     HeaderComponent,
-    SideNavigationComponent
+    SideNavigationComponent,
+    DisclaimerComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,6 @@ registerLocaleData(localePt);
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' }
   ],
-  entryComponents: [CustomDialogComponent],
+  entryComponents: [CustomDialogComponent, DisclaimerComponent],
 })
 export class AppModule { }

@@ -1,60 +1,71 @@
-<br />
-<form [formGroup]="searchForm">
-  <div  fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="space-evenly center" >
-    <mat-form-field fxFlex.xl="8%" fxFlex="18%"  > 
-      <mat-label>Ticker</mat-label>
-      <input oninput="this.value = this.value.toUpperCase()" matInput placeholder="Ex: WEGE3" (keyup)="applyFilter()"
-        #input formControlName="ticker" />
-    </mat-form-field>
-    <mat-form-field fxFlex.xl="8%" fxFlex="18%" >
-      <mat-label>P/L</mat-label>
-      <input matInput type="number" placeholder="Menor que" (keyup)="applyFilter()" #input formControlName="pl" />
-    </mat-form-field>
-    <mat-form-field fxFlex.xl="8%" fxFlex="18%" >
-      <mat-label>P/VPA</mat-label>
-      <input matInput type="number" (keyup)="applyFilter()" placeholder="Menor que" #input formControlName="pvp" />
-    </mat-form-field>
-    <mat-form-field fxFlex.xl="8%" fxFlex="18%" >
-      <mat-label>EV/EBIT</mat-label>
-      <input matInput type="number" (keyup)="applyFilter()" placeholder="Menor que" #input formControlName="evebit" />
-    </mat-form-field>
-    <mat-form-field fxFlex.xl="8%" fxFlex="18%" >
-      <mat-label>ROE</mat-label>
-      <input matInput type="number" (keyup)="applyFilter()" placeholder="Maior que" #input formControlName="roe" />
-      <span matSuffix>%</span>
-    </mat-form-field>
-    <mat-form-field fxFlex.xl="8%" fxFlex="18%" >
-      <mat-label>ROIC</mat-label>
-      <input matInput type="number" (keyup)="applyFilter()" placeholder="Maior que" #input formControlName="roic" />
-      <span matSuffix>%</span>
-    </mat-form-field>
-    <mat-form-field fxFlex.xl="8%" fxFlex="18%" >
-      <mat-label>DY</mat-label>
-      <input matInput type="number" (keyup)="applyFilter()" placeholder="Maior que" #input formControlName="dy" />
-      <span matSuffix>%</span>
-    </mat-form-field>
-    <mat-form-field fxFlex.xl="8%" fxFlex="18%" >
-      <mat-label>Cresc. Rec 5a</mat-label>
-      <input matInput type="number" (keyup)="applyFilter()" placeholder="Maior que" #input
-        formControlName="crescimentoReceita5Anos" />
-      <span matSuffix>%</span>
-    </mat-form-field>
-    <mat-form-field fxFlex.xl="8%" fxFlex="18%" >
-      <mat-label>Marg. EBIT</mat-label>
-      <input matInput type="number" (keyup)="applyFilter()" placeholder="Maior que" #input
-        formControlName="margemEbit" />
-      <span matSuffix>%</span>
-    </mat-form-field>
-    <mat-form-field fxFlex.xl="8%" fxFlex="18%" >
-      <mat-label>Marg. Liq.</mat-label>
-      <input matInput type="number" (keyup)="applyFilter()" placeholder="Maior que" #input
-        formControlName="margemLiquida" />
-      <span matSuffix>%</span>
-    </mat-form-field>
-  </div>
-</form>
-<div *ngIf="acoes.length > 0" class="container">
-  <div class="mat-elevation-z8">
+<div class="container">
+  <form [formGroup]="searchForm">
+    <br>
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel [expanded]="true">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Filtros
+          </mat-panel-title>
+          <mat-panel-description>
+            Filtre os registros pelos principais indicadores
+            <mat-icon>filter_alt</mat-icon>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div fxLayout="row wrap" fxLayoutGap="10px" fxLayoutAlign="space-evenly center">
+          <mat-form-field fxFlex.xl="8%" fxFlex="18%">
+            <mat-label>Ticker</mat-label>
+            <input oninput="this.value = this.value.toUpperCase()" matInput placeholder="Ex: WEGE3" (keyup)="applyFilter()" #input
+              formControlName="ticker" />
+          </mat-form-field>
+          <mat-form-field fxFlex.xl="8%" fxFlex="18%">
+            <mat-label>P/L</mat-label>
+            <input matInput type="number" placeholder="Menor que" (keyup)="applyFilter()" #input formControlName="pl" />
+          </mat-form-field>
+          <mat-form-field fxFlex.xl="8%" fxFlex="18%">
+            <mat-label>P/VPA</mat-label>
+            <input matInput type="number" (keyup)="applyFilter()" placeholder="Menor que" #input formControlName="pvp" />
+          </mat-form-field>
+          <mat-form-field fxFlex.xl="8%" fxFlex="18%">
+            <mat-label>EV/EBIT</mat-label>
+            <input matInput type="number" (keyup)="applyFilter()" placeholder="Menor que" #input formControlName="evebit" />
+          </mat-form-field>
+          <mat-form-field fxFlex.xl="8%" fxFlex="18%">
+            <mat-label>ROE</mat-label>
+            <input matInput type="number" (keyup)="applyFilter()" placeholder="Maior que" #input formControlName="roe" />
+            <span matSuffix>%</span>
+          </mat-form-field>
+          <mat-form-field fxFlex.xl="8%" fxFlex="18%">
+            <mat-label>ROIC</mat-label>
+            <input matInput type="number" (keyup)="applyFilter()" placeholder="Maior que" #input formControlName="roic" />
+            <span matSuffix>%</span>
+          </mat-form-field>
+          <mat-form-field fxFlex.xl="8%" fxFlex="18%">
+            <mat-label>DY</mat-label>
+            <input matInput type="number" (keyup)="applyFilter()" placeholder="Maior que" #input formControlName="dy" />
+            <span matSuffix>%</span>
+          </mat-form-field>
+          <mat-form-field fxFlex.xl="8%" fxFlex="18%">
+            <mat-label>Cresc. Rec 5a</mat-label>
+            <input matInput type="number" (keyup)="applyFilter()" placeholder="Maior que" #input
+              formControlName="crescimentoReceita5Anos" />
+            <span matSuffix>%</span>
+          </mat-form-field>
+          <mat-form-field fxFlex.xl="8%" fxFlex="18%">
+            <mat-label>Marg. EBIT</mat-label>
+            <input matInput type="number" (keyup)="applyFilter()" placeholder="Maior que" #input formControlName="margemEbit" />
+            <span matSuffix>%</span>
+          </mat-form-field>
+          <mat-form-field fxFlex.xl="8%" fxFlex="18%">
+            <mat-label>Marg. Liq.</mat-label>
+            <input matInput type="number" (keyup)="applyFilter()" placeholder="Maior que" #input formControlName="margemLiquida" />
+            <span matSuffix>%</span>
+          </mat-form-field>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </form>
+  <div *ngIf="acoes.length > 0" class="containerData mat-elevation-z8">
     <div class="table-container">
       <table mat-table [dataSource]="dataSource" matSort matSortActive="pontuacao" matSortDirection="asc">
         <ng-container *ngFor="let col of definicaoColunas" [matColumnDef]="col.key">
@@ -65,7 +76,6 @@
             <span [routerLink]="!usuarioLogado && element?.pontuacao > 5 ? ['/usuario/login'] : []"
               [ngClass]="[element['pontuacao'] > 5 && !usuarioLogado ? 'noauth' : '']">
               {{element[col.key] | dynamic:col.pipe.toString()}}</span>
-
           </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true">
@@ -78,13 +88,12 @@
         </tr>
       </table>
     </div>
-
     <mat-paginator [pageSizeOptions]="[20, 50, 100]" showFirstLastButtons></mat-paginator>
   </div>
-</div>
-<div *ngIf="acoes.length > 0 && !usuarioLogado" class="center">
-  <button routerLink='/usuario/login' mat-fab matTooltip="Efetue o login para visualizar todos os registros"
-    color="primary" aria-label="Log-in" matTooltipClass="tooltip">
-    <mat-icon>lock</mat-icon>
-  </button>
+  <div *ngIf="acoes.length > 0 && !usuarioLogado" class="center">
+    <button routerLink='/usuario/login' mat-fab matTooltip="Efetue o login para visualizar todos os registros" color="primary"
+      aria-label="Log-in" matTooltipClass="tooltip">
+      <mat-icon>lock</mat-icon>
+    </button>
+  </div>
 </div>
