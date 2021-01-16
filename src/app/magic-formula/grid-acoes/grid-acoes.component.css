@@ -14,12 +14,16 @@
 
 .table-container {
   position: relative;
-  height: 60vh;
+  height: 55vh;
   overflow: auto;
 }
 .container {
+  padding-bottom: 7vh;
+}
+.containerData {
   margin-top: 20px;
 }
+
 table {
   width: 100%;
 }

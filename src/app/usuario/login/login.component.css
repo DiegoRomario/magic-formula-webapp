@@ -1,14 +1,3 @@
-body {
-  font-family: "Roboto", sans-serif;
-  margin: 0px !important;
-  overflow: hidden;
-}
-.add-btn {
-  position: fixed;
-  right: 25px;
-  bottom: 20px;
-}
-
 .form-wraper {
   width: 100%;
   margin-top: 2%;
@@ -29,13 +18,9 @@ body {
 .form-header {
   padding: 24px 0;
 }
-.form-title {
-  text-align: center;
-  font-weight: 200;
-  font-size: 2.5em;
-}
+
 .main-lock-icon {
-  width: 20%;
+  width: 15%;
   margin: 1px auto;
   display: block;
 }
@@ -77,10 +62,6 @@ body {
 .additional-link {
   padding: 10px auto;
   text-align: center;
-}
-a {
-  text-decoration: none;
-  color: rgb(42, 125, 219);
 }
 
 @media (min-width: 1281px) {
@@ -158,4 +139,9 @@ a {
 
 .spinner-alignment {
   margin: 0 auto;
+}
+
+.text {
+  text-decoration: none;
+  color: rgb(42, 125, 219);
 }
