@@ -12,18 +12,34 @@
         <router-outlet></router-outlet>
       </main>
 
-       
-      <mat-toolbar class="footer" >
-        <p style="font-size: small;" >Desenvolvido por <a  target="_blank" href="https://www.linkedin.com/in/diego-romario/" >Diego Romário </a></p>
+
+      <mat-toolbar class="footer">
+        <p style="font-size: small;">Desenvolvido por <a target="_blank" href="https://www.linkedin.com/in/diego-romario/">Diego Romário
+          </a></p>
         <span class="example-spacer"></span>
         <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
           <mat-icon>info</mat-icon>
         </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-         <mat-icon>share</mat-icon>
-       </button>
+        <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with share icon">
+          <mat-icon>share</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <a mat-menu-item [href]="linkedinURL" target="_blank" data-text="Take a look at this awesome website:">
+            <div style="display: flex;">
+              <img src="./../../assets/linkedin.svg" class="main-lock-icon" alt="Linkedin" />
+              <span>Linkedin</span>
+            </div>
+          </a>
+          <a mat-menu-item [href]="whatsappURL" target="_blank" data-text="Take a look at this awesome website:">
+            <div style="display: flex;">
+              <img src="./../../assets/whatsapp.svg" class="main-lock-icon" alt="Whatsapp" />
+              <span>Whatsapp</span>
+            </div>
+          </a>
+        </mat-menu>
+
       </mat-toolbar>
-      
+
     </mat-sidenav-content>
   </mat-sidenav-container>
 </m4-layout>
