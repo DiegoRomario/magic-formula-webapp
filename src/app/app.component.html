@@ -17,10 +17,10 @@
         <p style="font-size: small;">Desenvolvido por <a target="_blank" href="https://www.linkedin.com/in/diego-romario/">Diego Romário
           </a></p>
         <span class="example-spacer"></span>
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <button mat-icon-button (click)="openDialog()" class="example-icon favorite-icon">
           <mat-icon>info</mat-icon>
         </button>
-        <button mat-icon-button class="example-icon" [matMenuTriggerFor]="menu" aria-label="Example icon-button with share icon">
+        <button mat-icon-button class="example-icon" [matMenuTriggerFor]=" menu">
           <mat-icon>share</mat-icon>
         </button>
         <mat-menu #menu="matMenu">

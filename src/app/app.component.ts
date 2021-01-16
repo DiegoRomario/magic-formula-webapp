@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 import { SpinnerService } from './services/spinner.service';
 
 @Component({
@@ -15,9 +17,13 @@ export class AppComponent {
 
 
 
-  constructor(public spinnerService: SpinnerService) {
+  constructor(public spinnerService: SpinnerService, public dialog: MatDialog) {
     this.currentURL = window.location.href;
     this.linkedinURL = 'https://www.linkedin.com/sharing/share-offsite/?url=' + this.currentURL
     this.whatsappURL = 'https://web.whatsapp.com/send?text=' + this.currentURL
+  }
+
+  openDialog() {
+    this.dialog.open(DisclaimerComponent);
   }
 }
