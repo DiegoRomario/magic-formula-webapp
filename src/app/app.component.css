@@ -21,7 +21,7 @@ mat-sidenav {
 mat-sidenav {
   width: 250px;
 }
-.example-spacer {
+.spacer {
   flex: 1 1 auto;
 }
 

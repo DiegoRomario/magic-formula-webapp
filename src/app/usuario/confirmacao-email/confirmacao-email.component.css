@@ -1,8 +1,4 @@
-body {
-    font-family: "Roboto", sans-serif;
-    margin: 0px !important;
-    overflow: hidden;
-  }
+
   .add-btn {
     position: fixed;
     right: 25px;
@@ -66,9 +62,7 @@ body {
     background: #3f51b5;
     color: #fff;
   }
-  .google-icon {
-    width: 6%;
-  }
+
   .txt {
     text-align: center;
     color: #333;
