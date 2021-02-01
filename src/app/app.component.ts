@@ -19,7 +19,7 @@ export class AppComponent {
 
   constructor(public spinnerService: SpinnerService, public dialog: MatDialog) {
     this.currentURL = window.location.href;
-    this.linkedinURL = 'https://www.linkedin.com/sharing/share-offsite/?url=' + this.currentURL
+    this.linkedinURL = 'https://www.linkedin.com/sharing/share-offsite/?url=' + this.currentURL;
     this.whatsappURL = 'https://web.whatsapp.com/send?text=' + this.currentURL;
   }
 

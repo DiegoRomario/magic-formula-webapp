@@ -9,15 +9,10 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-  "lint-staged": {
-    "src/**/*.{js,jsx}": [
-      "eslint . --fix",
-      "git add"
-    ]
-  },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "ng lint",
+      "pre-push": "ng test --watch=false"
     }
   },
   "private": true,
