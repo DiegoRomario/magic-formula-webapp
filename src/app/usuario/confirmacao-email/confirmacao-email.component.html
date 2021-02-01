@@ -3,7 +3,7 @@
     <div class="form-header">
       <img src="./../../assets/e-mail.svg" class="main-lock-icon" alt="" />
     </div>
-    <div *ngIf="!(spinnerService.visibility | async) && errors?.length == 0">
+    <div *ngIf="((spinnerService.visibility | async) === false) && errors?.length == 0">
       <div class="form-footer">
         <div class="additional-link">
           <a routerLink="/usuario/login"><strong>Seja Bem-vindo! </strong></a>
