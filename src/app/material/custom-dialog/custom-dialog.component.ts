@@ -10,8 +10,7 @@ export class CustomDialogComponent implements OnInit {
     title: string;
     message: string;
 
-    constructor(public dialogRef: MatDialogRef<CustomDialogComponent>,
-        @Inject(MAT_DIALOG_DATA) public data: ConfirmDialogModel) {
+    constructor(public dialogRef: MatDialogRef<CustomDialogComponent>, @Inject(MAT_DIALOG_DATA) public data: ConfirmDialogModel) {
         this.title = data.title;
         this.message = data.message;
     }

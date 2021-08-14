@@ -6,8 +6,8 @@
     <mat-sidenav-content>
       <m4-header (sidenavToggle)="sidenav.toggle()"></m4-header>
       <main>
-        <div *ngIf=" spinnerService.visibility | async" style="position: fixed; top: 46%; left: 48.2%">
-          <mat-spinner style="margin: 0 auto" color="accent" class="spinner-alignment" [diameter]="75"></mat-spinner>
+        <div *ngIf=" spinnerService.visibility | async" style="position: fixed; top: 46%; left: 48.2%; z-index: 99;">
+          <mat-spinner style="margin: 0 auto;" color="accent" class="spinner-alignment" [diameter]="75"></mat-spinner>
         </div>
         <router-outlet></router-outlet>
       </main>
@@ -16,11 +16,11 @@
       <mat-toolbar class="footer">
         <p style="font-size: small;">Desenvolvido por <a target="_blank" href="https://www.linkedin.com/in/diego-romario/">Diego Romário
           </a></p>
-        <span class="example-spacer"></span>
-        <button mat-icon-button (click)="openDialog()" class="example-icon favorite-icon">
+        <span class="spacer"></span>
+        <button mat-icon-button (click)="openDialog()" class="favorite-icon">
           <mat-icon>info</mat-icon>
         </button>
-        <button mat-icon-button class="example-icon" [matMenuTriggerFor]=" menu">
+        <button mat-icon-button [matMenuTriggerFor]=" menu">
           <mat-icon>share</mat-icon>
         </button>
         <mat-menu #menu="matMenu">

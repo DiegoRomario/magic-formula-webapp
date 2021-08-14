@@ -22,7 +22,7 @@
 
       <div class="form-footer">
         <button mat-raised-button class="btn custom-btn" [disabled]="!loginForm.valid || (spinnerService.visibility | async)" type="submit">
-          <div *ngIf="!(spinnerService.visibility | async)">
+          <div *ngIf="(spinnerService.visibility | async) === false">
             <mat-icon>login</mat-icon>
             <span> Entrar</span>
           </div>

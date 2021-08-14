@@ -13,10 +13,7 @@ export class SideNavigationComponent {
   token = '';
   usuario: Usuario;
   localStorageUtils = new LocalStorageService();
-
-  ngOnInit(): void { }
   constructor(private router: Router) { }
-
   usuarioLogado(): boolean {
     this.token = this.localStorageUtils.obterTokenUsuario();
     this.usuario = this.localStorageUtils.obterUsuario();

@@ -43,7 +43,7 @@
         <button id="botaocadastrar" [disabled]="
             !cadastroForm.valid || (spinnerService.visibility | async)
           " type="submit" mat-raised-button class="btn custom-btn">
-          <div *ngIf="!(spinnerService.visibility | async)">
+          <div *ngIf="(spinnerService.visibility | async) === false">
             <mat-icon>person_add</mat-icon>
             <span id="cadastrar"> Cadastrar</span>
           </div>
