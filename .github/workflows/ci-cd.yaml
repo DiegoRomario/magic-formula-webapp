@@ -6,8 +6,8 @@ on:
       - development
 
 env:
-  AZURE_WEBAPP_NAME: magicformula-webapp 
-  AZURE_WEBAPP_PACKAGE_PATH: './dist/magic-formula-webapp'
+  AZURE_WEBAPP_NAME: magicformula 
+  AZURE_WEBAPP_PACKAGE_PATH: './dist/magic-formula'
   NODE_VERSION: '14.x'
 
 jobs:
