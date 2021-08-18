@@ -13,7 +13,7 @@ export class AcaoService extends BaseService {
     super();
   }
 
-  obterAcoesM4(criterio: ECriterio): Observable<Acao[]> {
+  obterAcoesMagicFormula(criterio: ECriterio): Observable<Acao[]> {
 
     const acaoFake: Acao = {
       cotacao: 100, crescimentoReceita5Anos: 10.10,
@@ -28,10 +28,10 @@ export class AcaoService extends BaseService {
     let URL = this.UrlServiceV1;
     const usuarioLogado = this.localStorage.obterTokenUsuario();
     if (usuarioLogado) {
-      URL = URL + 'acoes/obter-todas-m4';
+      URL = URL + 'acoes/obter-todas-magic-formula';
     }
     else {
-      URL = URL + 'acoes/obter-5-m4';
+      URL = URL + 'acoes/obter-5-magic-formula';
     }
 
 
