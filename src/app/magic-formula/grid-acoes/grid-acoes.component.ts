@@ -65,7 +65,7 @@ export class GridAcoesComponent implements OnInit {
    }
    ngOnInit(): void {
       this.formInit();
-      this.acaoServices.obterAcoesM4(this.criterio).pipe(finalize(() => {
+      this.acaoServices.obterAcoesMagicFormula(this.criterio).pipe(finalize(() => {
          setTimeout(() => {
             this.dataSource.sort = this.sort;
             this.dataSource.paginator = this.paginator;
