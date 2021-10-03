@@ -18,9 +18,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./usuario/usuario.module').then((m) => m.UsuarioModule),
   },
-  // { path: 'acesso-negado', component: AcessoNegadoComponent },
-  // { path: 'nao-encontrado', component: NotFoundComponent },
-  // { path: '**', component: NotFoundComponent }
+   { path: '**', component: HomeComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes, { useHash: true })],

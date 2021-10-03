@@ -50,9 +50,6 @@ export class LoginComponent
         maxlength: 'A senha deve conter no máximo 50 caracteres',
       },
     };
-
-    // this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
-
     super.configurarMensagensValidacaoBase(this.validationMessages);
   }
 

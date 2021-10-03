@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DisclaimerComponent } from './disclaimer/disclaimer.component';
+import { DisclaimerComponent } from './magic-formula/disclaimer/disclaimer.component';
 import { SpinnerService } from './services/spinner.service';
 
 @Component({

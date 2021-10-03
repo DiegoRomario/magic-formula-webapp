@@ -5,10 +5,6 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class HomeComponent {
+  urlFormulaMagica = "https://www.amazon.com.br/dp/B086K21JYZ"
 }

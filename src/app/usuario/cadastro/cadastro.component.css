@@ -56,8 +56,6 @@
   text-align: center;
 }
 
-
-
 @media (min-width: 0px) and (max-width: 767px) {
   .form-container {
     width: 95%;
