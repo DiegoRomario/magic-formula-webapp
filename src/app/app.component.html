@@ -1,4 +1,4 @@
-<div *ngIf="true" id="loader-wrapper">
+<div *ngIf="spinnerService.visibility | async" id="loader-wrapper">
   <div id="loader">
     <mat-spinner
       color="accent"
