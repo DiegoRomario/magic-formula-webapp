@@ -1,3 +1,21 @@
+#loader-wrapper {
+  position: fixed;    
+  top: 0;
+  left: 0;
+  width: 100vw;       
+  height: 100vh;        
+  z-index: 1001;      
+}
+
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 8vmax;
+  height: 8vmax;
+  margin: -4vmax;  
+}
+
 mat-sidenav-container,
 mat-sidenav-content,
 mat-sidenav {
