@@ -1,27 +1,33 @@
 <h1 mat-dialog-title>Disclaimer</h1>
-<div mat-dialog-content>Todas as informações apresentadas no site são apenas dados e não representam nenhuma indicação ou sugestão para
-    tomada de decisões</div>
-<br>
-<hr>
-<p>Em relação <b>'Formula mágica'</b> nem todos os filtros foram aplicados até o momento, tais como:</p>
-
+<div mat-dialog-content>
+  Todas as informações apresentadas no site são apenas dados e não representam
+  nenhuma indicação ou sugestão para tomada de decisões
+</div>
+<br />
+<hr />
+<p>
+  Em relação <strong>'Formula Mágica'</strong>, nem todos os filtros foram aplicados até o
+  momento, tais como:
+</p>
 <ul>
-    <li>Exclusão de empresas do setor financeiro</li>
-    <li>Capitalização mínima</li>
-    <li>Líquidez</li>
+  <li>Exclusão de empresas do setor financeiro</li>
+  <li>Capitalização mínima</li>
+  <li>Líquidez</li>
 </ul>
-
-<p>Sugerimos que o usuário do site compre e leia o livro original (<a target="_blank"
-        href="https://www.amazon.com.br/dp/B086K21JYZ/ref=dp-kindle-redirect?_encoding=UTF8&btkr=1">"The Little Book That Beats The
-        Market"</a>) para entender melhor todas as métricas e ideias nele apresentadas, a fim de obter o máximo de conhecimento relacionado.
+<p>
+  Sugerimos que o usuário do site compre e leia o livro original (<a
+    target="_blank"
+    [href]="urlFormulaMagica"
+    >"The Little Book That Beats The Market"</a
+  >) para entender melhor todas as métricas e ideias nele apresentadas, a fim de
+  obter o máximo de conhecimento relacionado.
 </p>
-
-<p>Lembrando que o site é apenas um <b>projeto realizado para estudos</b> de tecnologias de desenvolvimento, que ficará no ar
-    <b>temporáriamente</b> e que
-    <b>não possui fins lucrativos.</b>
+<p>
+  Lembrando que o site é apenas um <strong>projeto realizado para estudos</strong>, que ficará no ar <b>temporáriamente</b> e que
+  <b>não possui fins lucrativos.</b>
 </p>
-
-
 <div mat-dialog-actions>
-    <button mat-stroked-button color="primary" mat-dialog-close>Ok, estou ciente!</button>
+  <button mat-stroked-button color="primary" mat-dialog-close>
+    Ok, estou ciente!
+  </button>
 </div>
