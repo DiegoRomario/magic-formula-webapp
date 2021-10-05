@@ -31,7 +31,7 @@ describe('Usuário Service', () => {
             email: 'diego@diego.com.br',
             senha: '123456',
         };
-        const responseMessage: ResponseMessage = { message: 'Usuário cadastrado com sucesso! Um e-mail foi enviado para confirmação do cadastro.' };
+        const responseMessage: ResponseMessage = { message: 'Usuário cadastrado com sucesso! Um e-mail será enviado para confirmação do cadastro.' };
         service.registrarUsuario(usuario).subscribe((response) => {
             expect(response).toEqual(responseMessage);
         });
