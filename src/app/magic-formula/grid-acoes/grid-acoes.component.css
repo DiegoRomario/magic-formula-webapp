@@ -50,6 +50,9 @@ th.mat-sort-header-sorted {
   position: absolute;
   left: 50%;
   top: 50%;
+  width: 8vmax;
+  height: 8vmax;
+  margin: -4vmax; 
 }
 ::ng-deep .headers {
   white-space: nowrap;
