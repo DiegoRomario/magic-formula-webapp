@@ -6,13 +6,10 @@ import {
   HttpEvent,
   HttpErrorResponse,
 } from '@angular/common/http';
-
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-
 import { LocalStorageService } from './local-storage.service';
 import { Router } from '@angular/router';
-
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
   constructor(private router: Router) {}
@@ -36,7 +33,6 @@ export class ErrorInterceptor implements HttpInterceptor {
             this.router.navigate(['/acesso-negado']);
           }
         }
-
         return throwError(error);
       })
     );

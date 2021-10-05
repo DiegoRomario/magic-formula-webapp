@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { CustomDialogComponent } from './material/custom-dialog/custom-dialog.component';
-import { DisclaimerComponent } from './disclaimer/disclaimer.component';
+import { DisclaimerComponent } from './magic-formula/disclaimer/disclaimer.component';
 
 registerLocaleData(localePt);
 @NgModule({

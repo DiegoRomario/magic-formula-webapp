@@ -1,3 +1,12 @@
+<div *ngIf="spinnerService.visibility | async" id="loader-wrapper">
+  <div id="loader">
+    <mat-spinner
+      color="accent"
+      class="spinner-alignment"
+      [diameter]="50"
+    ></mat-spinner>
+  </div>
+</div>
 <m4-layout>
   <mat-sidenav-container>
     <mat-sidenav #sidenav role="navigation">
@@ -6,40 +15,55 @@
     <mat-sidenav-content>
       <m4-header (sidenavToggle)="sidenav.toggle()"></m4-header>
       <main>
-        <div *ngIf=" spinnerService.visibility | async" style="position: fixed; top: 46%; left: 48.2%; z-index: 99;">
-          <mat-spinner style="margin: 0 auto;" color="accent" class="spinner-alignment" [diameter]="75"></mat-spinner>
-        </div>
         <router-outlet></router-outlet>
       </main>
-
-
       <mat-toolbar class="footer">
-        <p style="font-size: small;">Desenvolvido por <a target="_blank" href="https://www.linkedin.com/in/diego-romario/">Diego Romário
-          </a></p>
+        <p style="font-size: small">
+          Desenvolvido por
+          <a target="_blank" href="https://www.linkedin.com/in/diego-romario/"
+            >Diego Romário
+          </a>
+        </p>
         <span class="spacer"></span>
         <button mat-icon-button (click)="openDialog()" class="favorite-icon">
           <mat-icon>info</mat-icon>
         </button>
-        <button mat-icon-button [matMenuTriggerFor]=" menu">
+        <button mat-icon-button [matMenuTriggerFor]="menu">
           <mat-icon>share</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <a mat-menu-item [href]="linkedinURL" target="_blank" data-text="Take a look at this awesome website:">
-            <div style="display: flex;">
-              <img src="./../../assets/linkedin.svg" class="main-lock-icon" alt="Linkedin" />
+          <a
+            mat-menu-item
+            [href]="linkedinURL"
+            target="_blank"
+            data-text="Take a look at this awesome website:"
+          >
+            <div style="display: flex">
+              <img
+                src="./../../assets/linkedin.svg"
+                class="main-lock-icon"
+                alt="Linkedin"
+              />
               <span>Linkedin</span>
             </div>
           </a>
-          <a mat-menu-item [href]="whatsappURL" target="_blank" data-text="Take a look at this awesome website:">
-            <div style="display: flex;">
-              <img src="./../../assets/whatsapp.svg" class="main-lock-icon" alt="Whatsapp" />
+          <a
+            mat-menu-item
+            [href]="whatsappURL"
+            target="_blank"
+            data-text="Take a look at this awesome website:"
+          >
+            <div style="display: flex">
+              <img
+                src="./../../assets/whatsapp.svg"
+                class="main-lock-icon"
+                alt="Whatsapp"
+              />
               <span>Whatsapp</span>
             </div>
           </a>
         </mat-menu>
-
       </mat-toolbar>
-
     </mat-sidenav-content>
   </mat-sidenav-container>
 </m4-layout>

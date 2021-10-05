@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { DisclaimerComponent } from './disclaimer/disclaimer.component';
+import { DisclaimerComponent } from './magic-formula/disclaimer/disclaimer.component';
 import { SpinnerService } from './services/spinner.service';
 
 @Component({
@@ -11,16 +11,15 @@ import { SpinnerService } from './services/spinner.service';
 })
 export class AppComponent {
   title = 'magic-formula-webapp';
-  currentURL = '';
+  magicFormulaURL = 'https://magicformula.azurewebsites.net/';
   linkedinURL = '';
   whatsappURL = '';
 
 
 
   constructor(public spinnerService: SpinnerService, public dialog: MatDialog) {
-    this.currentURL = window.location.href;
-    this.linkedinURL = 'https://www.linkedin.com/sharing/share-offsite/?url=' + this.currentURL;
-    this.whatsappURL = 'https://web.whatsapp.com/send?text=' + this.currentURL;
+    this.linkedinURL = 'https://www.linkedin.com/shareArticle?mini=true&url=' + this.magicFormulaURL;
+    this.whatsappURL = 'https://web.whatsapp.com/send?text=' + this.magicFormulaURL;
   }
 
   openDialog() {
