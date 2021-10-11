@@ -1,5 +1,4 @@
 import { DynamicPipeDataType } from './dynamic-pipe-data-type.enum';
-
 export class ColumnsDefinition {
     constructor({ key, label, pipe = DynamicPipeDataType.default, size = 100, textAlign = 'right', arrowPosition = 'before' }
         : { key: string, label: string, pipe?: DynamicPipeDataType, size?: number, textAlign?: string, arrowPosition?: string }) {
@@ -16,5 +15,4 @@ export class ColumnsDefinition {
     pipe: DynamicPipeDataType;
     textAlign: string;
     arrowPosition: string;
-
 }
